@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://scenes/monster/Monster.gd" type="Script" id=1]
+[ext_resource path="res://scenes/monster/monster_body.msh" type="Mesh" id=2]
+[ext_resource path="res://scenes/monster/arm/MonsterArm.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/monster/leg/leg_upper.tscn" type="PackedScene" id=4]
+
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 12, 27, 12 )
+
+[node name="Monster" type="KinematicBody"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+input/ray_pickable = true
+input/capture_on_drag = false
+shape_count = 1
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 1
+collide_with/static = true
+collide_with/kinematic = true
+collide_with/rigid = true
+collide_with/character = true
+collision/margin = 0.001
+script/script = ExtResource( 1 )
+player_controller_node_path = null
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+layers = 1
+geometry/visible = true
+geometry/material_override = null
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+mesh/mesh = ExtResource( 2 )
+mesh/skeleton = NodePath("..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Arms" type="Spatial" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Arm" parent="Arms" instance=ExtResource( 3 )]
+
+transform/local = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 12, 12, 0 )
+
+[node name="Arm 2" parent="Arms" instance=ExtResource( 3 )]
+
+transform/local = Transform( 4.37114e-08, 0, 1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 12, 0 )
+flipped = true
+
+[node name="Arm 3" parent="Arms" instance=ExtResource( 3 )]
+
+transform/local = Transform( 4.37114e-08, 0, -1, -3.89414e-07, -1, -1.70218e-14, 1, -3.89414e-07, 4.37114e-08, 12, 2, 0 )
+flipped = true
+
+[node name="Arm 4" parent="Arms" instance=ExtResource( 3 )]
+
+transform/local = Transform( -2.8213e-07, 0, 1, -5.6426e-07, -1, -1.59195e-13, 1, -5.6426e-07, 2.8213e-07, -12, 2, 0 )
+
+[node name="Leg" parent="." instance=ExtResource( 4 )]
+
+transform/local = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 11.3001, -16.5853, 0.00289917 )
+
+[node name="Leg 2" parent="." instance=ExtResource( 4 )]
+
+transform/local = Transform( -1.62921e-07, 0, 1, 0, 1, 0, 1, 0, 1.62921e-07, -12.2321, -17.2828, 0 )
+walk_forward = true
+
+
