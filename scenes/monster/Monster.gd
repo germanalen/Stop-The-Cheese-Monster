@@ -12,6 +12,9 @@ func _ready():
 	player_controller = get_node(player_controller_node_path)
 	
 	set_process(true)
+	
+	#for arm in get_node("Arms").get_children():
+	#	arm.on_projectile_collide(1000)
 
 
 func _process(delta):
@@ -41,6 +44,9 @@ func _process(delta):
 	# Petals
 	if get_node("Arms").get_child_count() == 0:
 		animation_tree_player.transition_node_set_current("Petals", 1)
+		if Input.is_key_pressed(KEY_1) && alive():
+			get_node("Petals/Shooter").look_at(player_controller.get_player_pos(), Vector3(0,1,0))
+			get_node("Petals/Shooter").shoot()
 
 
 var health = 20

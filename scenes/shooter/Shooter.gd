@@ -29,6 +29,7 @@ func create_projectile():
 	
 	projectile.set_layer_mask(collision_layers)
 	projectile.set_collision_mask(collision_mask)
+	projectile.set_gravity_scale(0)
 	
 	var mesh_instance = MeshInstance.new()
 	mesh_instance.set_mesh(mesh)
