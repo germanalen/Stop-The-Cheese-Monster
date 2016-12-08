@@ -9,7 +9,7 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Monster" parent="." instance=ExtResource( 1 )]
 
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.404396, 0, -60.035 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.404396, 0, -76.3358 )
 player_controller_node_path = NodePath("../PlayerController")
 
 [node name="PlayerController" parent="." instance=ExtResource( 2 )]

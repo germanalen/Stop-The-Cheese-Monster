@@ -11,9 +11,6 @@ func _ready():
 	player_controller = get_node(player_controller_node_path)
 	
 	set_process(true)
-	
-	#get_node("Spiderbot/AnimationPlayer").get_animation("Walk").set_loop(true)
-	#get_node("Spiderbot/AnimationPlayer").play_backwards("Walk")
 
 
 func _process(delta):
@@ -35,7 +32,7 @@ func _process(delta):
 	
 	get_node("Arms").set_rotation(Vector3(0, to_player_xz.angle(), 0))
 	
-	#idk why chest bone rotates twice as fast. Maybe it has smth to do with Blender.
-	var chest_bone_transform = skeleton.get_bone_pose(chest_bone_id)
-	chest_bone_transform.basis = Matrix3(Vector3(0, 0, 1), to_player_xz.angle()*0.5)
-	skeleton.set_bone_pose(chest_bone_id, chest_bone_transform)
+	#idk why angle has to be multiplied by 0.5. Maybe it has smth to do with Blender.
+	var right_left_ration = (to_player_xz.angle() * 0.5 + PI/2)/PI
+	get_node("Spiderbot/AnimationTreePlayer").blend2_node_set_amount("Chest", right_left_ration)
+	
