@@ -78,4 +78,9 @@ func fall_off():
 	new_parent.add_child(self)
 	set_global_transform(global_transform)
 	
+	set_linear_velocity(Vector3(0, 0, 0))
+	set_angular_velocity(Vector3(0, 0, 0))
+	#get_node("ArmUpper").set_collision_mask(2)
+	#get_node("ArmUpper/ArmLower").set_collision_mask(2)
+	
 	set_mode(MODE_RIGID)
