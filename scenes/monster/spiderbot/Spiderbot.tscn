@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/monster/spiderbot/spiderbot.scn" type="PackedScene" id=1]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 
 resource/name = "ChestLeft"
 length = 0.0416667
@@ -124,129 +124,7 @@ tracks/22/interp = 1
 tracks/22/imported = true
 tracks/22/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=6]
-
-resource/name = "ChestRIght"
-length = 0.0416667
-loop = false
-step = 0.1
-tracks/0/type = "transform"
-tracks/0/path = NodePath("Armature")
-tracks/0/interp = 1
-tracks/0/imported = true
-tracks/0/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
-tracks/1/type = "transform"
-tracks/1/path = NodePath("Armature/Skeleton:LegUpper2.L")
-tracks/1/interp = 1
-tracks/1/imported = true
-tracks/1/keys = FloatArray( 0, 1, -1.18323e-07, 0, -1.19281e-07, -2.80766e-08, 2.08616e-07, -1.04859e-08, 1, 1, 1, 1, 0.0416667, 1, -1.18323e-07, 0, -1.19281e-07, -2.80766e-08, 2.08616e-07, -1.04859e-08, 1, 1, 1, 1 )
-tracks/2/type = "transform"
-tracks/2/path = NodePath("Armature/Skeleton:LegLower2.L")
-tracks/2/interp = 1
-tracks/2/imported = true
-tracks/2/keys = FloatArray( 0, 1, -3.57628e-07, 6.95877e-10, -5.96046e-08, 2.62658e-09, 2.08616e-07, 9.83337e-12, 1, 1, 1, 0.999999, 0.0416667, 1, -3.57628e-07, 6.95877e-10, -5.96046e-08, 2.62658e-09, 2.08616e-07, 9.83337e-12, 1, 1, 1, 0.999999 )
-tracks/3/type = "transform"
-tracks/3/path = NodePath("Armature/Skeleton:LegIK2.L")
-tracks/3/interp = 1
-tracks/3/imported = true
-tracks/3/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
-tracks/4/type = "transform"
-tracks/4/path = NodePath("Armature/Skeleton:LegUpper3.L")
-tracks/4/interp = 1
-tracks/4/imported = true
-tracks/4/keys = FloatArray( 0, 1, -4.65129e-08, -5.96046e-08, -1.34717e-07, -2.54114e-08, 2.23517e-07, -7.37085e-09, 1, 1, 1, 1, 0.0416667, 1, -4.65129e-08, -5.96046e-08, -1.34717e-07, -2.54114e-08, 2.23517e-07, -7.37085e-09, 1, 1, 1, 1 )
-tracks/5/type = "transform"
-tracks/5/path = NodePath("Armature/Skeleton:LegLower3.L")
-tracks/5/interp = 1
-tracks/5/imported = true
-tracks/5/keys = FloatArray( 0, 1, -2.38419e-07, -9.77954e-08, -1.78814e-07, -5.22201e-10, 1.63913e-07, -2.11259e-10, 1, 1, 1, 1, 0.0416667, 1, -2.38419e-07, -9.77954e-08, -1.78814e-07, -5.22201e-10, 1.63913e-07, -2.11259e-10, 1, 1, 1, 1 )
-tracks/6/type = "transform"
-tracks/6/path = NodePath("Armature/Skeleton:LegIK3.L")
-tracks/6/interp = 1
-tracks/6/imported = true
-tracks/6/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
-tracks/7/type = "transform"
-tracks/7/path = NodePath("Armature/Skeleton:LegUpper1.R")
-tracks/7/interp = 1
-tracks/7/imported = true
-tracks/7/keys = FloatArray( 0, 1, 2.93748e-08, 5.96046e-08, 9.23848e-09, -1.24604e-08, -2.08616e-07, -1.45231e-09, 1, 1, 1, 1, 0.0416667, 1, 2.93748e-08, 5.96046e-08, 9.23848e-09, -1.24604e-08, -2.08616e-07, -1.45231e-09, 1, 1, 1, 1 )
-tracks/8/type = "transform"
-tracks/8/path = NodePath("Armature/Skeleton:LegLower1.R")
-tracks/8/interp = 1
-tracks/8/imported = true
-tracks/8/keys = FloatArray( 0, 1, 2.38419e-07, 6.02882e-08, -2.23517e-07, -3.64499e-09, -1.63913e-07, -1.94534e-09, 1, 1, 1, 1, 0.0416667, 1, 2.38419e-07, 6.02882e-08, -2.23517e-07, -3.64499e-09, -1.63913e-07, -1.94534e-09, 1, 1, 1, 1 )
-tracks/9/type = "transform"
-tracks/9/path = NodePath("Armature/Skeleton:LegIK1.R")
-tracks/9/interp = 1
-tracks/9/imported = true
-tracks/9/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
-tracks/10/type = "transform"
-tracks/10/path = NodePath("Armature/Skeleton:LegUpper2.R")
-tracks/10/interp = 1
-tracks/10/imported = true
-tracks/10/keys = FloatArray( 0, 1, 4.18891e-10, -2.32831e-10, -4.30783e-11, -1.72722e-08, -2.98023e-07, 4.17175e-09, 1, 1, 1, 1, 0.0416667, 1, 4.18891e-10, -2.32831e-10, -4.30783e-11, -1.72722e-08, -2.98023e-07, 4.17175e-09, 1, 1, 1, 1 )
-tracks/11/type = "transform"
-tracks/11/path = NodePath("Armature/Skeleton:LegLower2.R")
-tracks/11/interp = 1
-tracks/11/imported = true
-tracks/11/keys = FloatArray( 0, 1, 3.57628e-07, 1.21076e-11, -5.36442e-07, 2.03992e-09, -2.6077e-07, 8.96758e-12, 1, 1, 1, 1, 0.0416667, 1, 3.57628e-07, 1.21076e-11, -5.36442e-07, 2.03992e-09, -2.6077e-07, 8.96758e-12, 1, 1, 1, 1 )
-tracks/12/type = "transform"
-tracks/12/path = NodePath("Armature/Skeleton:LegIK2.R")
-tracks/12/interp = 1
-tracks/12/imported = true
-tracks/12/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
-tracks/13/type = "transform"
-tracks/13/path = NodePath("Armature/Skeleton:LegUpper3.R")
-tracks/13/interp = 1
-tracks/13/imported = true
-tracks/13/keys = FloatArray( 0, 1, -2.8537e-08, 0, 1.09885e-07, -1.62889e-08, -2.08616e-07, 3.02245e-09, 1, 1, 1, 1, 0.0416667, 1, -2.8537e-08, 0, 1.09885e-07, -1.62889e-08, -2.08616e-07, 3.02245e-09, 1, 1, 1, 1 )
-tracks/14/type = "transform"
-tracks/14/path = NodePath("Armature/Skeleton:LegLower3.R")
-tracks/14/interp = 1
-tracks/14/imported = true
-tracks/14/keys = FloatArray( 0, 1, -3.57628e-07, 5.327e-08, -1.04308e-07, 8.78165e-10, -1.93715e-07, 1.41507e-09, 1, 1, 1, 1, 0.0416667, 1, -3.57628e-07, 5.327e-08, -1.04308e-07, 8.78165e-10, -1.93715e-07, 1.41507e-09, 1, 1, 1, 1 )
-tracks/15/type = "transform"
-tracks/15/path = NodePath("Armature/Skeleton:LegIK3.R")
-tracks/15/interp = 1
-tracks/15/imported = true
-tracks/15/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
-tracks/16/type = "transform"
-tracks/16/path = NodePath("Armature/Skeleton:Base")
-tracks/16/interp = 1
-tracks/16/imported = true
-tracks/16/keys = FloatArray( 0, 1, 0, 0, -1.19209e-07, -7.10543e-15, 1.00974e-28, -1.42109e-14, 1, 1, 1, 1, 0.0416667, 1, 0, 0, -1.19209e-07, -7.10543e-15, 1.00974e-28, -1.42109e-14, 1, 1, 1, 1 )
-tracks/17/type = "transform"
-tracks/17/path = NodePath("Armature/Skeleton:Chest")
-tracks/17/interp = 1
-tracks/17/imported = true
-tracks/17/keys = FloatArray( 0, 1, 0, 0, -2.38419e-07, -5.02429e-15, 5.02429e-15, 0.707107, 0.707107, 1, 1, 1, 0.0416667, 1, 0, 0, -2.38419e-07, -5.02429e-15, 5.02429e-15, 0.707107, 0.707107, 1, 1, 1 )
-tracks/18/type = "transform"
-tracks/18/path = NodePath("Armature/Skeleton:Petal.L")
-tracks/18/interp = 1
-tracks/18/imported = true
-tracks/18/keys = FloatArray( 0, 1, -4.17233e-07, 1.19209e-07, 2.5332e-07, -1.49012e-08, -1.49012e-08, -3.72529e-09, 1, 1, 1, 1, 0.0416667, 1, -4.17233e-07, 1.19209e-07, 2.5332e-07, -1.49012e-08, -1.49012e-08, -3.72529e-09, 1, 1, 1, 1 )
-tracks/19/type = "transform"
-tracks/19/path = NodePath("Armature/Skeleton:Petal.R")
-tracks/19/interp = 1
-tracks/19/imported = true
-tracks/19/keys = FloatArray( 0, 1, 2.83122e-07, 2.98023e-08, 0, 3.88578e-16, 1.49012e-08, 3.72529e-09, 1, 1, 1, 1, 0.0416667, 1, 2.83122e-07, 2.98023e-08, 0, 3.88578e-16, 1.49012e-08, 3.72529e-09, 1, 1, 1, 1 )
-tracks/20/type = "transform"
-tracks/20/path = NodePath("Armature/Skeleton:LegUpper1.L")
-tracks/20/interp = 1
-tracks/20/imported = true
-tracks/20/keys = FloatArray( 0, 1, 4.8286e-08, -5.96046e-08, -1.03845e-07, -2.15829e-08, 4.02331e-07, -2.89611e-09, 1, 1, 1, 1, 0.0416667, 1, 4.8286e-08, -5.96046e-08, -1.03845e-07, -2.15829e-08, 4.02331e-07, -2.89611e-09, 1, 1, 1, 1 )
-tracks/21/type = "transform"
-tracks/21/path = NodePath("Armature/Skeleton:LegLower1.L")
-tracks/21/interp = 1
-tracks/21/imported = true
-tracks/21/keys = FloatArray( 0, 1, 0, -3.11727e-08, -1.93715e-07, -5.04547e-09, 4.09782e-07, -2.11143e-10, 1, 1, 1, 1, 0.0416667, 1, 0, -3.11727e-08, -1.93715e-07, -5.04547e-09, 4.09782e-07, -2.11143e-10, 1, 1, 1, 1 )
-tracks/22/type = "transform"
-tracks/22/path = NodePath("Armature/Skeleton:LegIK1.L")
-tracks/22/interp = 1
-tracks/22/imported = true
-tracks/22/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
-
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=2]
 
 resource/name = "Idle"
 length = 0.0416667
@@ -368,7 +246,7 @@ tracks/22/interp = 1
 tracks/22/imported = true
 tracks/22/keys = FloatArray( 0, 1, -3.57628e-07, 6.95877e-10, -5.96046e-08, 2.62658e-09, 2.08616e-07, 9.83337e-12, 1, 1, 1, 0.999999, 0.0416667, 1, -3.57628e-07, 6.95877e-10, -5.96046e-08, 2.62658e-09, 2.08616e-07, 9.83337e-12, 1, 1, 1, 0.999999 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 
 length = 0.208333
 loop = false
@@ -489,7 +367,7 @@ tracks/22/interp = 1
 tracks/22/imported = true
 tracks/22/keys = FloatArray( 0, 1, -3.57628e-07, 6.95877e-10, -5.96046e-08, 2.62658e-09, 2.08616e-07, 9.83337e-12, 1, 1, 1, 0.999999, 0.208333, 1, -3.57628e-07, 6.95877e-10, -5.96046e-08, 2.62658e-09, 2.08616e-07, 9.83337e-12, 1, 1, 1, 0.999999 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=4]
 
 length = 0.208333
 loop = false
@@ -610,7 +488,129 @@ tracks/22/interp = 1
 tracks/22/imported = true
 tracks/22/keys = FloatArray( 0, 1, -3.57628e-07, 6.95877e-10, -5.96046e-08, 2.62658e-09, 2.08616e-07, 9.83337e-12, 1, 1, 1, 0.999999, 0.208333, 1, -3.57628e-07, 6.95877e-10, -5.96046e-08, 2.62658e-09, 2.08616e-07, 9.83337e-12, 1, 1, 1, 0.999999 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=5]
+
+resource/name = "ChestRIght"
+length = 0.0416667
+loop = false
+step = 0.1
+tracks/0/type = "transform"
+tracks/0/path = NodePath("Armature")
+tracks/0/interp = 1
+tracks/0/imported = true
+tracks/0/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("Armature/Skeleton:LegUpper2.L")
+tracks/1/interp = 1
+tracks/1/imported = true
+tracks/1/keys = FloatArray( 0, 1, -1.18323e-07, 0, -1.19281e-07, -2.80766e-08, 2.08616e-07, -1.04859e-08, 1, 1, 1, 1, 0.0416667, 1, -1.18323e-07, 0, -1.19281e-07, -2.80766e-08, 2.08616e-07, -1.04859e-08, 1, 1, 1, 1 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("Armature/Skeleton:LegLower2.L")
+tracks/2/interp = 1
+tracks/2/imported = true
+tracks/2/keys = FloatArray( 0, 1, -3.57628e-07, 6.95877e-10, -5.96046e-08, 2.62658e-09, 2.08616e-07, 9.83337e-12, 1, 1, 1, 0.999999, 0.0416667, 1, -3.57628e-07, 6.95877e-10, -5.96046e-08, 2.62658e-09, 2.08616e-07, 9.83337e-12, 1, 1, 1, 0.999999 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("Armature/Skeleton:LegIK2.L")
+tracks/3/interp = 1
+tracks/3/imported = true
+tracks/3/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/4/type = "transform"
+tracks/4/path = NodePath("Armature/Skeleton:LegUpper3.L")
+tracks/4/interp = 1
+tracks/4/imported = true
+tracks/4/keys = FloatArray( 0, 1, -4.65129e-08, -5.96046e-08, -1.34717e-07, -2.54114e-08, 2.23517e-07, -7.37085e-09, 1, 1, 1, 1, 0.0416667, 1, -4.65129e-08, -5.96046e-08, -1.34717e-07, -2.54114e-08, 2.23517e-07, -7.37085e-09, 1, 1, 1, 1 )
+tracks/5/type = "transform"
+tracks/5/path = NodePath("Armature/Skeleton:LegLower3.L")
+tracks/5/interp = 1
+tracks/5/imported = true
+tracks/5/keys = FloatArray( 0, 1, -2.38419e-07, -9.77954e-08, -1.78814e-07, -5.22201e-10, 1.63913e-07, -2.11259e-10, 1, 1, 1, 1, 0.0416667, 1, -2.38419e-07, -9.77954e-08, -1.78814e-07, -5.22201e-10, 1.63913e-07, -2.11259e-10, 1, 1, 1, 1 )
+tracks/6/type = "transform"
+tracks/6/path = NodePath("Armature/Skeleton:LegIK3.L")
+tracks/6/interp = 1
+tracks/6/imported = true
+tracks/6/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/7/type = "transform"
+tracks/7/path = NodePath("Armature/Skeleton:LegUpper1.R")
+tracks/7/interp = 1
+tracks/7/imported = true
+tracks/7/keys = FloatArray( 0, 1, 2.93748e-08, 5.96046e-08, 9.23848e-09, -1.24604e-08, -2.08616e-07, -1.45231e-09, 1, 1, 1, 1, 0.0416667, 1, 2.93748e-08, 5.96046e-08, 9.23848e-09, -1.24604e-08, -2.08616e-07, -1.45231e-09, 1, 1, 1, 1 )
+tracks/8/type = "transform"
+tracks/8/path = NodePath("Armature/Skeleton:LegLower1.R")
+tracks/8/interp = 1
+tracks/8/imported = true
+tracks/8/keys = FloatArray( 0, 1, 2.38419e-07, 6.02882e-08, -2.23517e-07, -3.64499e-09, -1.63913e-07, -1.94534e-09, 1, 1, 1, 1, 0.0416667, 1, 2.38419e-07, 6.02882e-08, -2.23517e-07, -3.64499e-09, -1.63913e-07, -1.94534e-09, 1, 1, 1, 1 )
+tracks/9/type = "transform"
+tracks/9/path = NodePath("Armature/Skeleton:LegIK1.R")
+tracks/9/interp = 1
+tracks/9/imported = true
+tracks/9/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/10/type = "transform"
+tracks/10/path = NodePath("Armature/Skeleton:LegUpper2.R")
+tracks/10/interp = 1
+tracks/10/imported = true
+tracks/10/keys = FloatArray( 0, 1, 4.18891e-10, -2.32831e-10, -4.30783e-11, -1.72722e-08, -2.98023e-07, 4.17175e-09, 1, 1, 1, 1, 0.0416667, 1, 4.18891e-10, -2.32831e-10, -4.30783e-11, -1.72722e-08, -2.98023e-07, 4.17175e-09, 1, 1, 1, 1 )
+tracks/11/type = "transform"
+tracks/11/path = NodePath("Armature/Skeleton:LegLower2.R")
+tracks/11/interp = 1
+tracks/11/imported = true
+tracks/11/keys = FloatArray( 0, 1, 3.57628e-07, 1.21076e-11, -5.36442e-07, 2.03992e-09, -2.6077e-07, 8.96758e-12, 1, 1, 1, 1, 0.0416667, 1, 3.57628e-07, 1.21076e-11, -5.36442e-07, 2.03992e-09, -2.6077e-07, 8.96758e-12, 1, 1, 1, 1 )
+tracks/12/type = "transform"
+tracks/12/path = NodePath("Armature/Skeleton:LegIK2.R")
+tracks/12/interp = 1
+tracks/12/imported = true
+tracks/12/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/13/type = "transform"
+tracks/13/path = NodePath("Armature/Skeleton:LegUpper3.R")
+tracks/13/interp = 1
+tracks/13/imported = true
+tracks/13/keys = FloatArray( 0, 1, -2.8537e-08, 0, 1.09885e-07, -1.62889e-08, -2.08616e-07, 3.02245e-09, 1, 1, 1, 1, 0.0416667, 1, -2.8537e-08, 0, 1.09885e-07, -1.62889e-08, -2.08616e-07, 3.02245e-09, 1, 1, 1, 1 )
+tracks/14/type = "transform"
+tracks/14/path = NodePath("Armature/Skeleton:LegLower3.R")
+tracks/14/interp = 1
+tracks/14/imported = true
+tracks/14/keys = FloatArray( 0, 1, -3.57628e-07, 5.327e-08, -1.04308e-07, 8.78165e-10, -1.93715e-07, 1.41507e-09, 1, 1, 1, 1, 0.0416667, 1, -3.57628e-07, 5.327e-08, -1.04308e-07, 8.78165e-10, -1.93715e-07, 1.41507e-09, 1, 1, 1, 1 )
+tracks/15/type = "transform"
+tracks/15/path = NodePath("Armature/Skeleton:LegIK3.R")
+tracks/15/interp = 1
+tracks/15/imported = true
+tracks/15/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/16/type = "transform"
+tracks/16/path = NodePath("Armature/Skeleton:Base")
+tracks/16/interp = 1
+tracks/16/imported = true
+tracks/16/keys = FloatArray( 0, 1, 0, 0, -1.19209e-07, -7.10543e-15, 1.00974e-28, -1.42109e-14, 1, 1, 1, 1, 0.0416667, 1, 0, 0, -1.19209e-07, -7.10543e-15, 1.00974e-28, -1.42109e-14, 1, 1, 1, 1 )
+tracks/17/type = "transform"
+tracks/17/path = NodePath("Armature/Skeleton:Chest")
+tracks/17/interp = 1
+tracks/17/imported = true
+tracks/17/keys = FloatArray( 0, 1, 0, 0, -2.38419e-07, -5.02429e-15, 5.02429e-15, 0.707107, 0.707107, 1, 1, 1, 0.0416667, 1, 0, 0, -2.38419e-07, -5.02429e-15, 5.02429e-15, 0.707107, 0.707107, 1, 1, 1 )
+tracks/18/type = "transform"
+tracks/18/path = NodePath("Armature/Skeleton:Petal.L")
+tracks/18/interp = 1
+tracks/18/imported = true
+tracks/18/keys = FloatArray( 0, 1, -4.17233e-07, 1.19209e-07, 2.5332e-07, -1.49012e-08, -1.49012e-08, -3.72529e-09, 1, 1, 1, 1, 0.0416667, 1, -4.17233e-07, 1.19209e-07, 2.5332e-07, -1.49012e-08, -1.49012e-08, -3.72529e-09, 1, 1, 1, 1 )
+tracks/19/type = "transform"
+tracks/19/path = NodePath("Armature/Skeleton:Petal.R")
+tracks/19/interp = 1
+tracks/19/imported = true
+tracks/19/keys = FloatArray( 0, 1, 2.83122e-07, 2.98023e-08, 0, 3.88578e-16, 1.49012e-08, 3.72529e-09, 1, 1, 1, 1, 0.0416667, 1, 2.83122e-07, 2.98023e-08, 0, 3.88578e-16, 1.49012e-08, 3.72529e-09, 1, 1, 1, 1 )
+tracks/20/type = "transform"
+tracks/20/path = NodePath("Armature/Skeleton:LegUpper1.L")
+tracks/20/interp = 1
+tracks/20/imported = true
+tracks/20/keys = FloatArray( 0, 1, 4.8286e-08, -5.96046e-08, -1.03845e-07, -2.15829e-08, 4.02331e-07, -2.89611e-09, 1, 1, 1, 1, 0.0416667, 1, 4.8286e-08, -5.96046e-08, -1.03845e-07, -2.15829e-08, 4.02331e-07, -2.89611e-09, 1, 1, 1, 1 )
+tracks/21/type = "transform"
+tracks/21/path = NodePath("Armature/Skeleton:LegLower1.L")
+tracks/21/interp = 1
+tracks/21/imported = true
+tracks/21/keys = FloatArray( 0, 1, 0, -3.11727e-08, -1.93715e-07, -5.04547e-09, 4.09782e-07, -2.11143e-10, 1, 1, 1, 1, 0.0416667, 1, 0, -3.11727e-08, -1.93715e-07, -5.04547e-09, 4.09782e-07, -2.11143e-10, 1, 1, 1, 1 )
+tracks/22/type = "transform"
+tracks/22/path = NodePath("Armature/Skeleton:LegIK1.L")
+tracks/22/interp = 1
+tracks/22/imported = true
+tracks/22/keys = FloatArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.0416667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=6]
 
 resource/name = "WalkBackward"
 length = 0.666667
@@ -739,6 +739,6 @@ tracks/22/keys = FloatArray( 0, 1, -2.38419e-07, 3.00351e-08, -7.45058e-08, -0.0
 playback/process_mode = 1
 base_path = NodePath("..")
 master_player = NodePath("")
-data = { "active":true, "connections":[ "All", "out", 0, "Movement", "All", 0, "Petals", "All", 1, "ChestRight", "Chest", 0, "ChestLeft", "Chest", 1, "IdleWalk", "Movement", 0, "Chest", "Movement", 1, "Idle", "IdleWalk", 0, "Walk", "IdleWalk", 1, "PetalsClose", "Petals", 0, "PetalsOpen", "Petals", 1 ], "master":NodePath(""), "nodes":[ { "id":"out", "pos":Vector2( 669, 69 ), "type":"output" }, { "blend":1.0, "filter":[ NodePath("Armature/Skeleton:LegLower1.L"), NodePath("Armature/Skeleton:LegLower3.R"), NodePath("Armature/Skeleton:LegIK1.R"), NodePath("Armature/Skeleton:LegLower2.L"), NodePath("Armature/Skeleton:LegUpper1.R"), NodePath("Armature/Skeleton:LegIK2.R"), NodePath("Armature/Skeleton:LegLower3.L"), NodePath("Armature/Skeleton:LegUpper2.R"), NodePath("Armature/Skeleton:Chest"), NodePath("Armature/Skeleton:LegIK1.L"), NodePath("Armature/Skeleton:LegIK3.R"), NodePath("Armature/Skeleton:LegUpper1.L"), NodePath("Armature/Skeleton:LegUpper3.R"), NodePath("Armature/Skeleton:LegIK2.L"), NodePath("Armature/Skeleton:LegUpper2.L"), NodePath("Armature/Skeleton:LegIK3.L"), NodePath("Armature/Skeleton:LegUpper3.L"), NodePath("Armature"), NodePath("Armature/Skeleton:LegLower1.R"), NodePath("Armature/Skeleton:Base"), NodePath("Armature/Skeleton:LegLower2.R") ], "id":"All", "pos":Vector2( 564, 69 ), "type":"blend2" }, { "blend":0.476624, "filter":[  ], "id":"Chest", "pos":Vector2( 221, 217 ), "type":"blend2" }, { "animation":SubResource( 5 ), "filter":[  ], "id":"ChestLeft", "pos":Vector2( 116, 283 ), "type":"animation" }, { "animation":SubResource( 6 ), "filter":[  ], "id":"ChestRight", "pos":Vector2( 112, 186 ), "type":"animation" }, { "animation":SubResource( 10 ), "filter":[  ], "id":"Idle", "pos":Vector2( 5, 34 ), "type":"animation" }, { "animation":SubResource( 7 ), "filter":[  ], "id":"PetalsClose", "pos":Vector2( 317, 158 ), "type":"animation" }, { "animation":SubResource( 8 ), "filter":[  ], "id":"PetalsOpen", "pos":Vector2( 318, 255 ), "type":"animation" }, { "blend":1.0, "filter":[ NodePath("Armature/Skeleton:LegLower3.R"), NodePath("Armature/Skeleton:LegLower1.L"), NodePath("Armature/Skeleton:LegUpper1.R"), NodePath("Armature/Skeleton:LegLower2.L"), NodePath("Armature/Skeleton:LegIK1.R"), NodePath("Armature/Skeleton:LegUpper2.R"), NodePath("Armature/Skeleton:LegLower3.L"), NodePath("Armature/Skeleton:LegIK2.R"), NodePath("Armature/Skeleton:LegUpper3.R"), NodePath("Armature/Skeleton:LegUpper1.L"), NodePath("Armature/Skeleton:LegIK3.R"), NodePath("Armature/Skeleton:LegIK1.L"), NodePath("Armature/Skeleton:LegUpper2.L"), NodePath("Armature/Skeleton:LegIK2.L"), NodePath("Armature/Skeleton:LegUpper3.L"), NodePath("Armature/Skeleton:LegIK3.L"), NodePath("Armature/Skeleton:LegLower1.R"), NodePath("Armature/Skeleton:LegLower2.R") ], "id":"Movement", "pos":Vector2( 325, 29 ), "type":"blend2" }, { "animation":SubResource( 9 ), "filter":[  ], "id":"Walk", "pos":Vector2( 5, 133 ), "type":"animation" }, { "blend":1.0, "filter":[  ], "id":"IdleWalk", "pos":Vector2( 178, 31 ), "type":"blend2" }, { "id":"Petals", "pos":Vector2( 447, 175 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 } ] }
+data = { "active":true, "connections":[ "All", "out", 0, "Movement", "All", 0, "Petals", "All", 1, "ChestRight", "Chest", 0, "ChestLeft", "Chest", 1, "IdleWalk", "Movement", 0, "Chest", "Movement", 1, "Idle", "IdleWalk", 0, "Walk", "IdleWalk", 1, "PetalsClose", "Petals", 0, "PetalsOpen", "Petals", 1 ], "master":NodePath(""), "nodes":[ { "id":"out", "pos":Vector2( 669, 69 ), "type":"output" }, { "blend":1.0, "filter":[ NodePath("Armature/Skeleton:LegLower3.R"), NodePath("Armature/Skeleton:LegLower1.L"), NodePath("Armature/Skeleton:LegUpper1.R"), NodePath("Armature/Skeleton:LegLower2.L"), NodePath("Armature/Skeleton:LegIK1.R"), NodePath("Armature/Skeleton:LegUpper2.R"), NodePath("Armature/Skeleton:LegLower3.L"), NodePath("Armature/Skeleton:LegIK2.R"), NodePath("Armature/Skeleton:LegUpper3.R"), NodePath("Armature/Skeleton:LegUpper1.L"), NodePath("Armature/Skeleton:LegIK3.R"), NodePath("Armature/Skeleton:LegIK1.L"), NodePath("Armature/Skeleton:Chest"), NodePath("Armature/Skeleton:LegUpper2.L"), NodePath("Armature/Skeleton:LegIK2.L"), NodePath("Armature/Skeleton:LegUpper3.L"), NodePath("Armature/Skeleton:LegIK3.L"), NodePath("Armature/Skeleton:LegLower1.R"), NodePath("Armature"), NodePath("Armature/Skeleton:LegLower2.R"), NodePath("Armature/Skeleton:Base") ], "id":"All", "pos":Vector2( 564, 69 ), "type":"blend2" }, { "blend":0.476624, "filter":[  ], "id":"Chest", "pos":Vector2( 221, 217 ), "type":"blend2" }, { "animation":SubResource( 1 ), "filter":[  ], "id":"ChestLeft", "pos":Vector2( 116, 283 ), "type":"animation" }, { "animation":SubResource( 2 ), "filter":[  ], "id":"Idle", "pos":Vector2( 5, 34 ), "type":"animation" }, { "animation":SubResource( 3 ), "filter":[  ], "id":"PetalsClose", "pos":Vector2( 317, 158 ), "type":"animation" }, { "animation":SubResource( 4 ), "filter":[  ], "id":"PetalsOpen", "pos":Vector2( 318, 255 ), "type":"animation" }, { "animation":SubResource( 5 ), "filter":[  ], "id":"ChestRight", "pos":Vector2( 112, 186 ), "type":"animation" }, { "blend":1.0, "filter":[ NodePath("Armature/Skeleton:LegLower1.L"), NodePath("Armature/Skeleton:LegLower3.R"), NodePath("Armature/Skeleton:LegIK1.R"), NodePath("Armature/Skeleton:LegLower2.L"), NodePath("Armature/Skeleton:LegUpper1.R"), NodePath("Armature/Skeleton:LegIK2.R"), NodePath("Armature/Skeleton:LegLower3.L"), NodePath("Armature/Skeleton:LegUpper2.R"), NodePath("Armature/Skeleton:LegIK1.L"), NodePath("Armature/Skeleton:LegIK3.R"), NodePath("Armature/Skeleton:LegUpper1.L"), NodePath("Armature/Skeleton:LegUpper3.R"), NodePath("Armature/Skeleton:LegIK2.L"), NodePath("Armature/Skeleton:LegUpper2.L"), NodePath("Armature/Skeleton:LegIK3.L"), NodePath("Armature/Skeleton:LegUpper3.L"), NodePath("Armature/Skeleton:LegLower1.R"), NodePath("Armature/Skeleton:LegLower2.R") ], "id":"Movement", "pos":Vector2( 325, 29 ), "type":"blend2" }, { "blend":1.0, "filter":[  ], "id":"IdleWalk", "pos":Vector2( 178, 31 ), "type":"blend2" }, { "id":"Petals", "pos":Vector2( 447, 175 ), "transitions":[ { "auto_advance":false }, { "auto_advance":false } ], "type":"transition", "xfade":0.0 }, { "animation":SubResource( 6 ), "filter":[  ], "id":"Walk", "pos":Vector2( 5, 133 ), "type":"animation" } ] }
 
 

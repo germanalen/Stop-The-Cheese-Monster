@@ -1,5 +1,5 @@
 
-extends RigidBody
+extends KinematicBody
 
 export var flipped = false
 
@@ -18,6 +18,7 @@ func _ready():
 	wish_lower_quat = Quat(arm_lower.get_transform().basis)
 	
 	set_process(true)
+	set_fixed_process(true)
 
 
 
@@ -26,10 +27,16 @@ var wish_lower_quat
 
 
 func _process(delta):
-	var arm_rotate_slerp_rate = 4
-	
-	global_node.spatial_quat_slerp(arm_upper, wish_upper_quat, arm_rotate_slerp_rate * delta)
-	global_node.spatial_quat_slerp(arm_lower, wish_lower_quat, arm_rotate_slerp_rate * delta)
+	if alive():
+		var arm_rotate_slerp_rate = 4
+		
+		global_node.spatial_quat_slerp(arm_upper, wish_upper_quat, arm_rotate_slerp_rate * delta)
+		global_node.spatial_quat_slerp(arm_lower, wish_lower_quat, arm_rotate_slerp_rate * delta)
+
+
+func _fixed_process(delta):
+	if !alive():
+		fall_process(delta)
 
 
 func wiggle():
@@ -66,10 +73,19 @@ var health = 10
 func on_projectile_collide(damage):
 	health -= damage
 	
-	if health <= 0:
+	if !alive():
 		# crashes if we call fall_off directly
 		call_deferred("fall_off")
 
+
+func alive():
+	return health > 0
+
+var fall_velocity_y = 0
+func fall_process(delta):
+	fall_velocity_y += -20 * delta
+	var delta_y = fall_velocity_y * delta
+	move(Vector3(0, delta_y, 0))
 
 func fall_off():
 	var global_transform = get_global_transform()
@@ -78,9 +94,5 @@ func fall_off():
 	new_parent.add_child(self)
 	set_global_transform(global_transform)
 	
-	set_linear_velocity(Vector3(0, 0, 0))
-	set_angular_velocity(Vector3(0, 0, 0))
-	#get_node("ArmUpper").set_collision_mask(2)
-	#get_node("ArmUpper/ArmLower").set_collision_mask(2)
-	
-	set_mode(MODE_RIGID)
+	get_node("ArmUpper").set_collision_mask(0)
+	get_node("ArmUpper/ArmLower").set_collision_mask(0)

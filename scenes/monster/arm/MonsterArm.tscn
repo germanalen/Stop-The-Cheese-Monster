@@ -6,9 +6,9 @@
 [ext_resource path="res://scenes/shooter/Shooter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/monster/arm/monster_projectile.msh" type="Mesh" id=5]
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="BoxShape" id=4]
 
-extents = Vector3( 3, 3, 10 )
+extents = Vector3( 4, 4, 10 )
 
 [sub_resource type="BoxShape" id=2]
 
@@ -18,33 +18,22 @@ extents = Vector3( 4, 4, 8 )
 
 extents = Vector3( 1.5, 1.5, 2.5 )
 
-[node name="Arm" type="RigidBody"]
+[node name="Arm" type="KinematicBody"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.6367 )
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.5322 )
 shapes/0/trigger = false
-collision/layers = 0
+collision/layers = 2
 collision/mask = 0
-mode = 3
-mass = 1.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 1.0
-custom_integrator = false
-continuous_cd = false
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = true
-axis_lock = 0
-velocity/linear = Vector3( 0, 0, 0 )
-velocity/angular = Vector3( 0, 0, 0 )
-damp_override/linear = -1.0
-damp_override/angular = -1.0
+collide_with/static = true
+collide_with/kinematic = false
+collide_with/rigid = false
+collide_with/character = false
+collision/margin = 0.001
 script/script = ExtResource( 1 )
 flipped = false
 
@@ -58,11 +47,11 @@ shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
 shapes/0/trigger = false
 collision/layers = 2
-collision/mask = 1
-collide_with/static = true
-collide_with/kinematic = true
+collision/mask = 0
+collide_with/static = false
+collide_with/kinematic = false
 collide_with/rigid = true
-collide_with/character = true
+collide_with/character = false
 collision/margin = 0.001
 script/script = ExtResource( 2 )
 
@@ -107,11 +96,11 @@ shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -8 )
 shapes/0/trigger = false
 collision/layers = 2
-collision/mask = 1
-collide_with/static = true
-collide_with/kinematic = true
+collision/mask = 0
+collide_with/static = false
+collide_with/kinematic = false
 collide_with/rigid = true
-collide_with/character = true
+collide_with/character = false
 collision/margin = 0.001
 script/script = ExtResource( 2 )
 
@@ -152,7 +141,16 @@ mesh = ExtResource( 5 )
 shape = SubResource( 3 )
 period = 0.05
 projectile_lifetime = 2
+speed = 70
 collision_layers = 4
 destruct_mask = 1
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.5322 )
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
 
 

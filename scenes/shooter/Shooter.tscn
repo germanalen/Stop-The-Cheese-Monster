@@ -2,7 +2,6 @@
 
 [ext_resource path="res://scenes/shooter/Shooter.gd" type="Script" id=1]
 
-
 [node name="Shooter" type="Spatial"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
@@ -10,6 +9,7 @@ script/script = ExtResource( 1 )
 mesh = null
 shape = null
 period = 1.0
+damage = 1
 projectile_lifetime = 10
 speed = 50
 collision_layers = 1

@@ -6,7 +6,7 @@ const PLAYER_POS_BOUND_SIZE = Vector2(60, 25)
 
 export var forward_speed = 0
 
-
+onready var camera_player_dist_y = get_node("Camera").get_translation().y - get_node("Player").get_translation().y
 
 func _ready():
 	set_process(true)
@@ -19,10 +19,6 @@ func get_player_pos():
 
 
 func _process(delta):
-	# move forward
-	translate(-get_transform().basis.z * forward_speed * delta)
-	
-	
 	var player_pos = get_node("Player").get_translation()
 	
 	var camera = get_node("Camera")
@@ -30,6 +26,9 @@ func _process(delta):
 	camera_rotation.y = -player_pos.x / PLAYER_POS_BOUND_SIZE.width * 0.4
 	camera.set_rotation(camera_rotation)
 	
+	var camera_translation = camera.get_translation();
+	camera_translation.y = get_node("Player").get_translation().y + camera_player_dist_y
+	camera.set_translation(camera_translation)
 	
 	if Input.is_action_pressed("shoot"):
 		shoot()
@@ -40,7 +39,34 @@ func shoot():
 	pass
 
 
+var wish_roll = 0
+var wish_pitch = 0
+
+
 func _fixed_process(delta):
+	if player_alive():
+		player_alive_process(delta)
+	else:
+		player_lost_process(delta)
+	
+	
+	var player = get_node("Player")
+	
+	var roll = player.get_rotation().z
+	var pitch = player.get_rotation().x
+	
+	var roll_pitch_lerp_rate = 10
+	roll = lerp(roll, wish_roll, delta * roll_pitch_lerp_rate)
+	pitch = lerp(pitch, wish_pitch, delta * roll_pitch_lerp_rate)
+	
+	player.set_rotation(Vector3(pitch, 0, roll))
+
+
+func player_alive_process(delta):
+	# move forward
+	translate(-get_transform().basis.z * forward_speed * delta)
+	
+	
 	var player = get_node("Player")
 	
 	# movement
@@ -73,18 +99,28 @@ func _fixed_process(delta):
 	player.move(Vector3(delta_pos.x, delta_pos.y, 0))
 	
 	# Roll, pitch calculation
-	var wish_roll = -PI/6 * move_direction.x
-	var wish_pitch = PI/5 * move_direction.y
+	wish_roll = -PI/6 * move_direction.x
+	wish_pitch = PI/5 * move_direction.y
 	
-	var roll = player.get_rotation().z
-	var pitch = player.get_rotation().x
-	
-	var roll_pitch_lerp_rate = 10
-	roll = lerp(roll, wish_roll, delta * roll_pitch_lerp_rate)
-	pitch = lerp(pitch, wish_pitch, delta * roll_pitch_lerp_rate)
-	
-	player.set_rotation(Vector3(pitch, 0, roll))
 
+
+var player_lost_velocity_y = 0
+func player_lost_process(delta):
+	player_lost_velocity_y += -40 * delta
+	
+	var delta_x = wish_roll * (-10) * delta
+	var delta_y = player_lost_velocity_y * delta
+	
+	get_node("Player").move(Vector3(delta_x, delta_y, 0))
+	
+	wish_pitch = -PI/5
+
+
+var health = 10
 
 func on_projectile_collide(damage):
-	print("splash")
+	health -= damage
+
+func player_alive():
+	return health > 0
+	#return false

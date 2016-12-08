@@ -8,6 +8,8 @@ export(Shape) var shape
 export var period = 1.0
 var period_timer
 
+export var damage = 1
+
 export var projectile_lifetime = 10
 
 export var speed = 50
@@ -55,7 +57,7 @@ func create_projectile():
 
 func projectile_on_body_enter(body, projectile):
 	if body.has_method("on_projectile_collide"):
-		body.on_projectile_collide(1) # on_projectile_collide(damage)
+		body.on_projectile_collide(damage)
 	if body.get_layer_mask() & destruct_mask != 0:
 		projectile.queue_free()
 

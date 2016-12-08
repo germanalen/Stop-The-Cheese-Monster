@@ -6,6 +6,7 @@ var player_controller
 
 onready var skeleton = get_node("Spiderbot/Armature/Skeleton")
 onready var chest_bone_id = skeleton.find_bone("Chest")
+onready var animation_tree_player = get_node("Spiderbot/AnimationTreePlayer")
 
 func _ready():
 	player_controller = get_node(player_controller_node_path)
@@ -34,5 +35,25 @@ func _process(delta):
 	
 	#idk why angle has to be multiplied by 0.5. Maybe it has smth to do with Blender.
 	var right_left_ration = (to_player_xz.angle() * 0.5 + PI/2)/PI
-	get_node("Spiderbot/AnimationTreePlayer").blend2_node_set_amount("Chest", right_left_ration)
+	animation_tree_player.blend2_node_set_amount("Chest", right_left_ration)
 	
+	
+	# Petals
+	if get_node("Arms").get_child_count() == 0:
+		animation_tree_player.transition_node_set_current("Petals", 1)
+
+
+var health = 20
+# Petals.on_projectile_collide
+func on_projectile_collide(damage):
+	if get_node("Arms").get_child_count() == 0:
+		health -= damage
+		
+		if !alive():
+			var idle_walk_blend = animation_tree_player.blend2_node_get_amount("IdleWalk")
+			idle_walk_blend = lerp(idle_walk_blend, 0, 0.2)
+			animation_tree_player.blend2_node_set_amount("IdleWalk", idle_walk_blend)
+
+
+func alive():
+	return health > 0
