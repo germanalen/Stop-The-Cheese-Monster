@@ -43,7 +43,10 @@ var wish_pitch = 0
 
 func _fixed_process(delta):
 	if player_alive():
-		player_alive_process(delta)
+		if player_won:
+			player_won_process(delta)
+		else:
+			player_playing_process(delta)
 	else:
 		player_lost_process(delta)
 	
@@ -60,7 +63,7 @@ func _fixed_process(delta):
 	player.set_rotation(Vector3(pitch, 0, roll))
 
 
-func player_alive_process(delta):
+func player_playing_process(delta):
 	# move forward
 	translate(forward_velocity * delta)
 	
@@ -121,6 +124,32 @@ func player_lost_process(delta):
 	camera_translation.y = lerp(camera_translation.y, wish_camera_translation.y, 5 * delta)
 	camera_translation.z = lerp(camera_translation.z, wish_camera_translation.z, 10 * delta)
 	camera.set_translation(camera_translation)
+
+
+var player_won = false
+var player_won_velocity_y = 0
+func player_won_process(delta):
+	player_won_velocity_y += 20 * delta
+	
+	var delta_x = 0
+	var delta_y = player_won_velocity_y * delta
+	var delta_z = forward_velocity.z * delta
+	
+	get_node("Player").move(Vector3(delta_x, delta_y, delta_z))
+	
+	wish_roll = 0
+	wish_pitch = PI/10
+	
+	var camera = get_node("Camera")
+	var camera_translation = camera.get_translation();
+	var wish_camera_translation = get_node("Player").get_translation() + camera_player_offset	
+	camera_translation.x = lerp(camera_translation.x, wish_camera_translation.x, delta)
+	camera_translation.y = lerp(camera_translation.y, wish_camera_translation.y, 5 * delta)
+	camera_translation.z = lerp(camera_translation.z, wish_camera_translation.z, 5 * delta)
+	camera.set_translation(camera_translation)
+
+func on_player_won():
+	player_won = true
 
 
 var health = 10

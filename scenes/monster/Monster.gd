@@ -53,6 +53,7 @@ func on_projectile_collide(damage):
 		health -= damage
 		
 		if !alive():
+			player_controller.on_player_won()
 			stop_walking()
 
 
@@ -73,6 +74,8 @@ func _fixed_process(delta):
 func switch_idle_walking():
 	wish_walking = 1 - wish_walking
 
+func stop_walking():
+	wish_walking = 0
 
 func turn_to_player(delta):
 	# rotate chest towards the player
