@@ -34,7 +34,7 @@ func _process(delta):
 		animation_tree_player.transition_node_set_current("Petals", 1)
 		if Input.is_key_pressed(KEY_1) && alive():
 			get_node("Petals/Shooter").look_at(player_controller.get_player_pos(), Vector3(0,1,0))
-			get_node("Petals/Shooter").shoot()
+			get_node("Petals/Shooter").shoot(walking_velocity)
 
 
 func _input(event):
