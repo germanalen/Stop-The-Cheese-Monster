@@ -96,3 +96,8 @@ func fall_off():
 	
 	get_node("ArmUpper").set_collision_mask(0)
 	get_node("ArmUpper/ArmLower").set_collision_mask(0)
+
+
+
+func can_shoot():
+	return get_node("ArmUpper/ArmLower/Shooter/PeriodTimer").get_time_left() == 0
