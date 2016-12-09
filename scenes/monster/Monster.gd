@@ -19,7 +19,7 @@ func _ready():
 func _process(delta):
 	if Input.is_key_pressed(KEY_1):
 		for arm in get_node("Arms").get_children():
-			arm.shoot(walking_velocity)
+			arm.shoot(current_velocity())
 	if Input.is_key_pressed(KEY_Z):
 		for arm in get_node("Arms").get_children():
 			arm.wiggle()
@@ -34,7 +34,7 @@ func _process(delta):
 		animation_tree_player.transition_node_set_current("Petals", 1)
 		if Input.is_key_pressed(KEY_1) && alive():
 			get_node("Petals/Shooter").look_at(player_controller.get_player_pos(), Vector3(0,1,0))
-			get_node("Petals/Shooter").shoot(walking_velocity)
+			get_node("Petals/Shooter").shoot(current_velocity())
 
 
 func _input(event):
@@ -69,7 +69,7 @@ func _fixed_process(delta):
 	walking = lerp(walking, wish_walking, 10 * delta)
 	animation_tree_player.blend2_node_set_amount("IdleWalk", walking)
 	
-	translate(walking_velocity * walking * delta)
+	translate(current_velocity() * delta)
 
 func switch_idle_walking():
 	wish_walking = 1 - wish_walking
@@ -115,7 +115,7 @@ func shoot_pattern_process():
 		if arms_can_shoot:
 			for i in range(arms.size()):
 				if shoot_pattern[i][floor(shoot_pattern_index)][1]:
-					arms[i].shoot(walking_velocity)
+					arms[i].shoot(current_velocity())
 			shoot_pattern_index += 1
 
 
@@ -130,3 +130,7 @@ func lines_shoot_pattern():
 		points[3].append(point)
 	
 	return points
+
+
+func current_velocity():
+	return walking_velocity * walking
