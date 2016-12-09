@@ -11,7 +11,7 @@ onready var animation_tree_player = get_node("Spiderbot/AnimationTreePlayer")
 func _ready():
 	set_process(true)
 	set_process_input(true)
-	
+	set_fixed_process(true)
 	#for arm in get_node("Arms").get_children():
 	#	arm.on_projectile_collide(1000)
 
@@ -19,7 +19,7 @@ func _ready():
 func _process(delta):
 	if Input.is_key_pressed(KEY_1):
 		for arm in get_node("Arms").get_children():
-			arm.shoot()
+			arm.shoot(walking_velocity)
 	if Input.is_key_pressed(KEY_Z):
 		for arm in get_node("Arms").get_children():
 			arm.wiggle()
@@ -42,7 +42,8 @@ func _input(event):
 		if event.pressed == true:
 			if event.scancode == KEY_2:
 				reset_shoot_pattern(lines_shoot_pattern())
-	pass
+			if event.scancode == KEY_0:
+				switch_idle_walking()
 
 
 var health = 20
@@ -52,14 +53,25 @@ func on_projectile_collide(damage):
 		health -= damage
 		
 		if !alive():
-			var idle_walk_blend = animation_tree_player.blend2_node_get_amount("IdleWalk")
-			idle_walk_blend = lerp(idle_walk_blend, 0, 0.2)
-			animation_tree_player.blend2_node_set_amount("IdleWalk", idle_walk_blend)
+			stop_walking()
 
 
 func alive():
 	return health > 0
 
+
+export var walking_speed = 200
+onready var walking_velocity = Vector3(0, 0, -walking_speed)
+var wish_walking = 1
+var walking = 0
+func _fixed_process(delta):
+	walking = lerp(walking, wish_walking, 10 * delta)
+	animation_tree_player.blend2_node_set_amount("IdleWalk", walking)
+	
+	translate(walking_velocity * walking * delta)
+
+func switch_idle_walking():
+	wish_walking = 1 - wish_walking
 
 
 func turn_to_player(delta):
@@ -100,7 +112,7 @@ func shoot_pattern_process():
 		if arms_can_shoot:
 			for i in range(arms.size()):
 				if shoot_pattern[i][floor(shoot_pattern_index)][1]:
-					arms[i].shoot()
+					arms[i].shoot(walking_velocity)
 			shoot_pattern_index += 1
 
 

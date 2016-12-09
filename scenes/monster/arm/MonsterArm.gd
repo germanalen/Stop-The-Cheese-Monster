@@ -64,8 +64,8 @@ func direct_at(point):
 	wish_lower_quat = Quat(arm_lower.get_transform().basis.y,0)
 
 
-func shoot():
-	get_node("ArmUpper/ArmLower/Shooter").shoot()
+func shoot(parent_velocity):
+	get_node("ArmUpper/ArmLower/Shooter").shoot(parent_velocity)
 
 
 var health = 10
@@ -83,7 +83,7 @@ func alive():
 
 var fall_velocity_y = 0
 func fall_process(delta):
-	fall_velocity_y += -20 * delta
+	fall_velocity_y += -40 * delta
 	var delta_y = fall_velocity_y * delta
 	move(Vector3(0, delta_y, 0))
 

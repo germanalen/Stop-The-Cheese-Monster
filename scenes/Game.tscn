@@ -5,7 +5,7 @@
 
 [sub_resource type="BoxShape" id=1]
 
-extents = Vector3( 100, 8, 200 )
+extents = Vector3( 100, 8, 1000 )
 
 [node name="Game" type="Spatial"]
 
@@ -15,36 +15,16 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -75 )
 player_controller_node_path = NodePath("../PlayerController")
+walking_speed = 50
 
 [node name="PlayerController" parent="." instance=ExtResource( 2 )]
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0 )
+forward_speed = 50
 
 [node name="Other" type="Spatial" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="OmniLight" type="OmniLight" parent="."]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 178.645, 104.467, 96.8897 )
-layers = 1
-params/enabled = true
-params/editor_only = false
-params/bake_mode = 0
-params/energy = 3.0
-colors/diffuse = Color( 1, 1, 1, 1 )
-colors/specular = Color( 1, 1, 1, 1 )
-shadow/shadow = false
-shadow/darkening = 0.0
-shadow/z_offset = 0.001
-shadow/z_slope_scale = 0.0
-shadow/esm_multiplier = 60.0
-shadow/blur_passes = 1.0
-projector = null
-operator = 0
-params/radius = 400.0
-params/attenuation = 1.0
 
 [node name="Ground" type="StaticBody" parent="."]
 
@@ -66,7 +46,7 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 [node name="TestCube" type="TestCube" parent="Ground"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 100, 0, 0, 0, 10, 0, 0, 0, 200, 0, 0, 0 )
+transform/local = Transform( 1000, 0, 0, 0, 10, 0, 0, 0, 1000, 0, 0, 0 )
 layers = 1
 geometry/visible = true
 geometry/material_override = null
@@ -88,5 +68,29 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 0.633983, -0.310527, 0.708265, 0, 0.915843, 0.401537, -0.773347, -0.254567, 0.580629, 0, 69.7484, -5.81702 )
+layers = 1
+params/enabled = true
+params/editor_only = false
+params/bake_mode = 0
+params/energy = 1.0
+colors/diffuse = Color( 1, 1, 1, 1 )
+colors/specular = Color( 1, 1, 1, 1 )
+shadow/shadow = false
+shadow/darkening = 0.0
+shadow/z_offset = 0.05
+shadow/z_slope_scale = 0.0
+shadow/esm_multiplier = 60.0
+shadow/blur_passes = 1.0
+projector = null
+operator = 0
+shadow/mode = 0
+shadow/max_distance = 0.0
+shadow/split_weight = 0.5
+shadow/zoffset_scale = 2.0
 
 

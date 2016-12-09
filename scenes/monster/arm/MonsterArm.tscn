@@ -141,7 +141,7 @@ mesh = ExtResource( 5 )
 shape = SubResource( 3 )
 period = 0.05
 projectile_lifetime = 2
-speed = 70
+relative_speed = 50
 collision_layers = 4
 destruct_mask = 1
 

@@ -12,7 +12,7 @@ export var damage = 1
 
 export var projectile_lifetime = 10
 
-export var speed = 50
+export var relative_speed = 50
 
 export(int, FLAGS) var collision_layers = 1
 export(int, FLAGS) var collision_mask = 1
@@ -63,7 +63,7 @@ func projectile_on_body_enter(body, projectile):
 		projectile.queue_free()
 
 
-func shoot():
+func shoot(parent_velocity):
 	if period_timer.get_time_left() != 0:
 		return
 	period_timer.start()
@@ -72,7 +72,7 @@ func shoot():
 	var projectile = create_projectile()
 	projectile.set_transform(projectile_parent.get_global_transform().affine_inverse() * get_global_transform())
 	projectile_parent.add_child(projectile)
-	projectile.set_linear_velocity(-projectile.get_transform().basis.z * speed)
+	projectile.set_linear_velocity(parent_velocity + projectile.get_transform().basis.z * (-relative_speed))
 	
 	pass
 

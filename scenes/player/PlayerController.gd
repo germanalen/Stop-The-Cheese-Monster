@@ -5,8 +5,9 @@ extends Spatial
 const PLAYER_POS_BOUND_SIZE = Vector2(60, 25)
 
 export var forward_speed = 0
+onready var forward_velocity = Vector3(0, 0, -forward_speed)
 
-onready var camera_player_dist_y = get_node("Camera").get_translation().y - get_node("Player").get_translation().y
+onready var camera_player_offset = get_node("Camera").get_translation() - get_node("Player").get_translation()
 
 func _ready():
 	set_process(true)
@@ -26,16 +27,13 @@ func _process(delta):
 	camera_rotation.y = -player_pos.x / PLAYER_POS_BOUND_SIZE.width * 0.4
 	camera.set_rotation(camera_rotation)
 	
-	var camera_translation = camera.get_translation();
-	camera_translation.y = get_node("Player").get_translation().y + camera_player_dist_y
-	camera.set_translation(camera_translation)
 	
 	if Input.is_action_pressed("shoot"):
 		shoot()
 
 
 func shoot():
-	get_node("Player/Shooter").shoot()
+	get_node("Player/Shooter").shoot(forward_velocity)
 	pass
 
 
@@ -64,7 +62,7 @@ func _fixed_process(delta):
 
 func player_alive_process(delta):
 	# move forward
-	translate(-get_transform().basis.z * forward_speed * delta)
+	translate(forward_velocity * delta)
 	
 	
 	var player = get_node("Player")
@@ -110,10 +108,19 @@ func player_lost_process(delta):
 	
 	var delta_x = wish_roll * (-10) * delta
 	var delta_y = player_lost_velocity_y * delta
+	var delta_z = forward_velocity.z * delta
 	
-	get_node("Player").move(Vector3(delta_x, delta_y, 0))
+	get_node("Player").move(Vector3(delta_x, delta_y, delta_z))
 	
 	wish_pitch = -PI/5
+	
+	var camera = get_node("Camera")
+	var camera_translation = camera.get_translation();
+	var wish_camera_translation = get_node("Player").get_translation() + camera_player_offset	
+	camera_translation.x = lerp(camera_translation.x, wish_camera_translation.x, delta)
+	camera_translation.y = lerp(camera_translation.y, wish_camera_translation.y, 5 * delta)
+	camera_translation.z = lerp(camera_translation.z, wish_camera_translation.z, 10 * delta)
+	camera.set_translation(camera_translation)
 
 
 var health = 10
