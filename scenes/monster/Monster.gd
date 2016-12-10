@@ -64,7 +64,7 @@ func alive():
 export var walking_speed = 200
 onready var walking_velocity = Vector3(0, 0, -walking_speed)
 var wish_walking = 1
-var walking = 0
+var walking = 1
 func _fixed_process(delta):
 	walking = lerp(walking, wish_walking, 10 * delta)
 	animation_tree_player.blend2_node_set_amount("IdleWalk", walking)

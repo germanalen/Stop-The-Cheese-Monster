@@ -113,7 +113,9 @@ func player_lost_process(delta):
 	var delta_y = player_lost_velocity_y * delta
 	var delta_z = forward_velocity.z * delta
 	
-	get_node("Player").move(Vector3(delta_x, delta_y, delta_z))
+	# I am sorry. This is my first 3d game. Giving collision shape to ground didn't work(((
+	if get_node("../Ground").get_global_transform().origin.y < get_player_pos().y:
+		get_node("Player").move(Vector3(delta_x, delta_y, delta_z))
 	
 	wish_pitch = -PI/5
 	
