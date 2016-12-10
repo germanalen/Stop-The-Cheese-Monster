@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/monster/Monster.gd" type="Script" id=1]
 [ext_resource path="res://scenes/monster/arm/MonsterArm.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/monster/spiderbot/Spiderbot.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/shooter/OnProjectileCollideToParent.gd" type="Script" id=4]
+[ext_resource path="res://scenes/monster/Petals.gd" type="Script" id=4]
 [ext_resource path="res://scenes/shooter/Shooter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/monster/arm/monster_projectile.msh" type="Mesh" id=6]
 
@@ -27,7 +27,7 @@ extents = Vector3( 9, 9, 20 )
 
 extents = Vector3( 5, 4, 6 )
 
-[sub_resource type="BoxShape" id=6]
+[sub_resource type="BoxShape" id=7]
 
 extents = Vector3( 1.5, 1.5, 2.5 )
 
@@ -150,7 +150,7 @@ _update_shape_index = 0
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 3.27164 )
 mesh = ExtResource( 6 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 period = 0.05
 projectile_lifetime = 2
 relative_speed = 50

@@ -48,7 +48,7 @@ func _input(event):
 
 var health = 20
 # Petals.on_projectile_collide
-func on_projectile_collide(damage):
+func petals_on_projectile_collide(damage):
 	if get_node("Arms").get_child_count() == 0:
 		health -= damage
 		

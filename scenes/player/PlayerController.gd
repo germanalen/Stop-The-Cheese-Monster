@@ -146,7 +146,11 @@ func player_won_process(delta):
 	camera_translation.x = lerp(camera_translation.x, wish_camera_translation.x, delta)
 	camera_translation.y = lerp(camera_translation.y, wish_camera_translation.y, 5 * delta)
 	camera_translation.z = lerp(camera_translation.z, wish_camera_translation.z, 5 * delta)
-	camera.set_translation(camera_translation)
+	#camera.set_translation(camera_translation)
+	
+	var camera_rotation = camera.get_rotation()
+	camera_rotation.y = 0
+	camera.set_rotation(camera_rotation)
 
 func on_player_won():
 	player_won = true
