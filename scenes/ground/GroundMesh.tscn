@@ -15,13 +15,13 @@ params/blend_mode = 0
 params/depth_draw = 1
 params/line_width = 0.0
 fixed_flags/use_alpha = false
-fixed_flags/use_color_array = false
+fixed_flags/use_color_array = true
 fixed_flags/use_point_size = false
 fixed_flags/discard_alpha = false
 fixed_flags/use_xy_normalmap = false
-params/diffuse = Color( 0.601562, 0.531654, 0.32193, 1 )
+params/diffuse = Color( 1, 1, 1, 1 )
 params/specular = Color( 0, 0, 0, 1 )
-params/emission = Color( 0, 0, 0, 1 )
+params/emission = Color( 0.121094, 0.121094, 0.121094, 1 )
 params/specular_exp = 40
 params/detail_mix = 1.0
 params/normal_depth = 1
@@ -43,8 +43,9 @@ textures/shade_param_tc = 0
 
 transform/local = Transform( 1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0, 0, 0 )
 
-[node name="Cube" parent="."]
+[node name="Plane" parent="."]
 
+mesh/skeleton = NodePath("..")
 material/0 = SubResource( 1 )
 
 

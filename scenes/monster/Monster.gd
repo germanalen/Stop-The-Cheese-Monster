@@ -26,6 +26,7 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_X):
 		for arm in get_node("Arms").get_children():
 			arm.direct_at(player_controller.get_player_pos())
+		turn_to_player(delta)
 	
 	shoot_pattern_process()
 	
@@ -80,12 +81,15 @@ func stop_walking():
 func turn_to_player(delta):
 	# rotate chest towards the player
 	var to_player_xyz = player_controller.get_player_pos() - get_transform().origin
-	var to_player_xz = Vector2(to_player_xyz.x, to_player_xyz.z)
+	var wish_rotation = Vector2(to_player_xyz.x, to_player_xyz.z).angle()
 	
-	get_node("Arms").set_rotation(Vector3(0, to_player_xz.angle(), 0))
+	var rotation = get_node("Arms").get_rotation().y
+	rotation = lerp(rotation, wish_rotation, delta * 5)
+	
+	get_node("Arms").set_rotation(Vector3(0, rotation, 0))
 	
 	#idk why angle has to be multiplied by 0.5. Maybe it has smth to do with Blender.
-	var right_left_ration = (to_player_xz.angle() * 0.5 + PI/2)/PI
+	var right_left_ration = (rotation * 0.5 + PI/2)/PI
 	animation_tree_player.blend2_node_set_amount("Chest", right_left_ration)
 
 

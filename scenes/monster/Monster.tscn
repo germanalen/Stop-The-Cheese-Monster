@@ -27,7 +27,7 @@ extents = Vector3( 9, 9, 20 )
 
 extents = Vector3( 5, 4, 6 )
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=6]
 
 extents = Vector3( 1.5, 1.5, 2.5 )
 
@@ -94,26 +94,25 @@ _update_shape_index = 3
 
 [node name="Arms" type="Spatial" parent="."]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Arm" parent="Arms" instance=ExtResource( 2 )]
 
-transform/local = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 12, 12, 0 )
+transform/local = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 14, 14, 0 )
 
 [node name="Arm 2" parent="Arms" instance=ExtResource( 2 )]
 
-transform/local = Transform( 4.37114e-08, 0, 1, 0, 1, 0, 1, 0, -4.37114e-08, -12, 12, 0 )
+transform/local = Transform( 4.37114e-08, 0, 1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 14, 0 )
 flipped = true
 
 [node name="Arm 3" parent="Arms" instance=ExtResource( 2 )]
 
-transform/local = Transform( 4.37114e-08, 0, -1, -3.89414e-07, -1, -1.70218e-14, 1, -3.89414e-07, 4.37114e-08, 12, 2, 0 )
+transform/local = Transform( 4.37114e-08, 0, -1, -3.89414e-07, -1, -1.70218e-14, 1, -3.89414e-07, 4.37114e-08, 14, 0, 0 )
 flipped = true
 
 [node name="Arm 4" parent="Arms" instance=ExtResource( 2 )]
 
-transform/local = Transform( -2.8213e-07, 0, 1, -5.6426e-07, -1, -1.59195e-13, 1, -5.6426e-07, 2.8213e-07, -12, 2, 0 )
+transform/local = Transform( -2.8213e-07, 0, 1, -5.6426e-07, -1, -1.59195e-13, 1, -5.6426e-07, 2.8213e-07, -14, 0, 0 )
 
 [node name="Spiderbot" parent="." instance=ExtResource( 3 )]
 
@@ -121,7 +120,6 @@ transform/local = Transform( 15.6831, 0, 0, 0, 15.6831, 0, 0, 0, 15.6831, 0, -57
 
 [node name="Petals" type="KinematicBody" parent="."]
 
-editor/display_folded = true
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.22698, 0 )
 input/ray_pickable = true
@@ -150,10 +148,10 @@ _update_shape_index = 0
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 3.27164 )
 mesh = ExtResource( 6 )
-shape = SubResource( 7 )
-period = 0.05
+shape = SubResource( 6 )
+period = 0.2
 projectile_lifetime = 2
-relative_speed = 50
+relative_speed = 100
 collision_layers = 4
 destruct_mask = 1
 

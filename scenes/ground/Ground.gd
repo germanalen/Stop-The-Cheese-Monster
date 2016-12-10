@@ -11,7 +11,7 @@ func _ready():
 
 
 func _process(delta):
-	var mesh_length = 20030
+	var mesh_length = 20115
 	
 	var player_z = player_controller.get_player_pos().z
 	var mesh1_z = mesh1.get_global_transform().origin.z

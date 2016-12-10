@@ -123,7 +123,7 @@ func player_lost_process(delta):
 	var camera_translation = camera.get_translation();
 	var wish_camera_translation = get_node("Player").get_translation() + camera_player_offset	
 	camera_translation.x = lerp(camera_translation.x, wish_camera_translation.x, delta)
-	camera_translation.y = lerp(camera_translation.y, wish_camera_translation.y, 5 * delta)
+	camera_translation.y = lerp(camera_translation.y, wish_camera_translation.y + 10, 5 * delta)
 	camera_translation.z = lerp(camera_translation.z, wish_camera_translation.z, 10 * delta)
 	camera.set_translation(camera_translation)
 
@@ -131,11 +131,11 @@ func player_lost_process(delta):
 var player_won = false
 var player_won_velocity_y = 0
 func player_won_process(delta):
-	player_won_velocity_y += 20 * delta
+	player_won_velocity_y += forward_speed * 0.5 * delta
 	
 	var delta_x = 0
 	var delta_y = player_won_velocity_y * delta
-	var delta_z = forward_velocity.z * delta
+	var delta_z = forward_velocity.z * 0.5 * delta
 	
 	get_node("Player").move(Vector3(delta_x, delta_y, delta_z))
 	
