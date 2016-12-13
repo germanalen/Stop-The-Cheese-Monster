@@ -21,9 +21,11 @@ func _process(delta):
 		for arm in get_node("Arms").get_children():
 			arm.shoot(current_velocity())
 	if Input.is_key_pressed(KEY_Z):
+		stop_shoot_pattern()
 		for arm in get_node("Arms").get_children():
 			arm.wiggle()
 	if Input.is_key_pressed(KEY_X):
+		stop_shoot_pattern()
 		for arm in get_node("Arms").get_children():
 			arm.direct_at(player_controller.get_player_pos())
 		turn_to_player(delta)
@@ -41,10 +43,16 @@ func _process(delta):
 func _input(event):
 	if event.type == InputEvent.KEY:
 		if event.pressed == true:
-			if event.scancode == KEY_2:
-				reset_shoot_pattern(lines_shoot_pattern())
 			if event.scancode == KEY_0:
 				switch_idle_walking()
+			if event.scancode == KEY_2:
+				reset_shoot_pattern(lines_shoot_pattern_horizontal())
+			if event.scancode == KEY_3:
+				reset_shoot_pattern(lines_shoot_pattern_vertical())
+			if event.scancode == KEY_4:
+				reset_shoot_pattern(cross_shoot_pattern())
+			if event.scancode == KEY_5:
+				reset_shoot_pattern(spiral_shoot_pattern())
 
 
 var health = 20
@@ -78,6 +86,10 @@ func switch_idle_walking():
 func stop_walking():
 	wish_walking = 0
 
+func current_velocity():
+	return walking_velocity * walking
+
+
 func turn_to_player(delta):
 	# rotate chest towards the player
 	var to_player_xyz = player_controller.get_player_pos() - get_transform().origin
@@ -98,9 +110,9 @@ func reset_shoot_pattern(points):
 	shoot_pattern_index = 0
 
 
+
 var shoot_pattern = [[],[],[],[]]
 var shoot_pattern_index = 0
-var shoot_pattern_subindex = 0
 func shoot_pattern_process():
 	if shoot_pattern_index < shoot_pattern[0].size():
 		var arms = get_node("Arms").get_children()
@@ -116,25 +128,72 @@ func shoot_pattern_process():
 				arms_can_shoot = false
 				break
 		
-		if arms_can_shoot:
+		if shoot_pattern_index < 1:
+			# to direct arms to starting position
+			shoot_pattern_index += 0.025
+		elif arms_can_shoot:
 			for i in range(arms.size()):
 				if shoot_pattern[i][floor(shoot_pattern_index)][1]:
 					arms[i].shoot(current_velocity())
 			shoot_pattern_index += 1
 
 
-func lines_shoot_pattern():
+func stop_shoot_pattern():
+	shoot_pattern = [[],[],[],[]]
+
+
+func lines_shoot_pattern_horizontal(midpoint_y=0):
 	var points = [[],[],[],[]]
 	
-	for i in range(60):
-		var point = [Vector2((i/59.0 - 0.5), 0.5)*1.2, true]
-		points[0].append(point)
-		points[2].append(point)
-		points[1].append(point)
-		points[3].append(point)
+	for i in range(20):
+		var x = (i/19.0 - 0.5) * 1.5
+		points[0].append([Vector2(x, midpoint_y + 0.4), true])
+		points[1].append([Vector2(-x, midpoint_y + 0.2), true])
+		points[2].append([Vector2(x, midpoint_y -0.4), true])
+		points[3].append([Vector2(-x, midpoint_y -0.2), true])
 	
 	return points
 
+func lines_shoot_pattern_vertical(midpoint_x=0):
+	var points = [[],[],[],[]]
+	
+	for i in range(15):
+		var y = (i/14.0 - 0.5) * 1.5
+		points[0].append([Vector2(midpoint_x + 0.05, y), true])
+		points[1].append([Vector2(midpoint_x - 0.05, y), true])
+		points[2].append([Vector2(midpoint_x + 0.2, -y), true])
+		points[3].append([Vector2(midpoint_x - 0.2, -y), true])
+	
+	return points
 
-func current_velocity():
-	return walking_velocity * walking
+func cross_shoot_pattern():
+	var points = [[],[],[],[]]
+	
+	var length_x = 5
+	var length_y = 5
+	
+	for i in range(length_x):
+		for j in range(length_y):
+			var x = (i/(length_x-1.0))/2
+			var y = (i/(length_y-1.0))/2
+			points[0].append([Vector2(x, y), true])
+			points[1].append([Vector2(-x, y), true])
+			points[2].append([Vector2(x, -y), true])
+			points[3].append([Vector2(-x, -y), true])
+	return points
+
+func spiral_shoot_pattern(length = 60, begin_radius = 0.1, end_radius = 1):
+	var points = [[],[],[],[]]
+	
+	var radius = begin_radius
+	var radius_increment = (end_radius - begin_radius) / length
+	
+	for i in range(length):
+		radius += radius_increment
+		var angle = (i*PI/180) * (360/length)
+		points[0].append([Vector2(sin(angle),cos(angle)) * radius, true])
+		points[1].append([Vector2(sin(angle+PI/2),cos(angle+PI/2)) * radius, true])
+		points[2].append([Vector2(sin(angle+PI),cos(angle+PI)) * radius, true])
+		points[3].append([Vector2(sin(angle+PI*1.5),cos(angle+PI*1.5)) * radius, true])
+	
+	return points

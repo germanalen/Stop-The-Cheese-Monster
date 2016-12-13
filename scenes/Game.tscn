@@ -13,12 +13,11 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -97.0527 )
 player_controller_node_path = NodePath("../PlayerController")
-walking_speed = 500
 
 [node name="PlayerController" parent="." instance=ExtResource( 2 )]
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0 )
-forward_speed = 500
+forward_speed = 200
 
 [node name="Other" type="Spatial" parent="."]
 
