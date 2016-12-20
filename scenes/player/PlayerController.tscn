@@ -1,19 +1,21 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scenes/player/PlayerController.gd" type="Script" id=1]
-[ext_resource path="res://scenes/shooter/OnProjectileCollideToParent.gd" type="Script" id=2]
-[ext_resource path="res://scenes/shooter/Shooter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/player/player_projectile.msh" type="Mesh" id=4]
-[ext_resource path="res://scenes/player/spaceship.scn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/sky.png" type="Texture" id=2]
+[ext_resource path="res://scenes/shooter/OnProjectileCollideToParent.gd" type="Script" id=3]
+[ext_resource path="res://scenes/shooter/Shooter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/player/player_projectile.msh" type="Mesh" id=5]
+[ext_resource path="res://scenes/player/spaceship.scn" type="PackedScene" id=6]
 
-[sub_resource type="Environment" id=6]
+[sub_resource type="Environment" id=1]
 
 ambient_light/enabled = false
 ambient_light/color = Color( 0.152344, 0.152344, 0.152344, 1 )
 ambient_light/energy = 1.0
 fxaa/enabled = false
-background/mode = 1
-background/color = Color( 0, 0, 0, 1 )
+background/mode = 3
+background/color = Color( 0.249814, 0.0737, 0.410156, 1 )
+background/texture = ExtResource( 2 )
 background/energy = 1.0
 background/scale = 1.0
 background/glow = 0.0
@@ -38,12 +40,12 @@ hdr/glow_scale = 0.2
 hdr/min_luminance = 0.4
 hdr/max_luminance = 8.0
 hdr/exposure_adj_speed = 0.5
-fog/enabled = false
-fog/begin = 100.0
-fog/begin_color = Color( 0, 0, 0, 1 )
-fog/end_color = Color( 0, 0, 0, 1 )
-fog/attenuation = 1.0
-fog/bg = true
+fog/enabled = true
+fog/begin = 2900.0
+fog/begin_color = Color( 0.0573209, 0.0541534, 0.152344, 1 )
+fog/end_color = Color( 0.0573209, 0.0541534, 0.152344, 1 )
+fog/attenuation = 0.965937
+fog/bg = false
 bcs/enabled = false
 bcs/brightness = 1.0
 bcs/contrast = 1.0
@@ -58,7 +60,7 @@ extents = Vector3( 3, 1, 3 )
 
 radius = 0.2
 
-[sub_resource type="FixedMaterial" id=5]
+[sub_resource type="FixedMaterial" id=4]
 
 flags/visible = true
 flags/double_sided = false
@@ -95,7 +97,7 @@ textures/glow_tc = 0
 textures/normal_tc = 0
 textures/shade_param_tc = 0
 
-[sub_resource type="FixedMaterial" id=4]
+[sub_resource type="FixedMaterial" id=5]
 
 flags/visible = true
 flags/double_sided = false
@@ -149,7 +151,7 @@ far = 3000.0
 keep_aspect = 1
 current = false
 visible_layers = 1048575
-environment = SubResource( 6 )
+environment = SubResource( 1 )
 h_offset = 0.0
 v_offset = 0.0
 
@@ -169,7 +171,7 @@ collide_with/kinematic = true
 collide_with/rigid = true
 collide_with/character = true
 collision/margin = 0.001
-script/script = ExtResource( 2 )
+script/script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
 
@@ -179,10 +181,10 @@ shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
-[node name="Shooter" parent="Player" instance=ExtResource( 3 )]
+[node name="Shooter" parent="Player" instance=ExtResource( 4 )]
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.23579 )
-mesh = ExtResource( 4 )
+mesh = ExtResource( 5 )
 shape = SubResource( 3 )
 period = 0.1
 projectile_lifetime = 1
@@ -191,15 +193,15 @@ collision_layers = 8
 collision_mask = 6
 destruct_mask = 6
 
-[node name="spaceship" parent="Player" instance=ExtResource( 5 )]
+[node name="spaceship" parent="Player" instance=ExtResource( 6 )]
 
 [node name="lights" parent="Player/spaceship"]
 
-material/0 = SubResource( 5 )
+material/0 = SubResource( 4 )
 
 [node name="body" parent="Player/spaceship"]
 
-material/0 = SubResource( 4 )
+material/0 = SubResource( 5 )
 
 
 [editable path="Player/spaceship"]
