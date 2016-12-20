@@ -31,7 +31,31 @@ layers = 1
 params/enabled = true
 params/editor_only = false
 params/bake_mode = 0
-params/energy = 2.0
+params/energy = 1.5
+colors/diffuse = Color( 0.297293, 0.250732, 0.308594, 1 )
+colors/specular = Color( 1, 1, 1, 1 )
+shadow/shadow = false
+shadow/darkening = 0.0
+shadow/z_offset = 0.05
+shadow/z_slope_scale = 0.0
+shadow/esm_multiplier = 60.0
+shadow/blur_passes = 1.0
+projector = null
+operator = 0
+shadow/mode = 0
+shadow/max_distance = 0.0
+shadow/split_weight = 0.5
+shadow/zoffset_scale = 2.0
+
+[node name="DirectionalLight1" type="DirectionalLight" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1.32322, 0, 0, 0, -2.1558e-07, -1.32323, 0, 1.32322, -2.15581e-07, 0, -17.0043, -5.81702 )
+layers = 1
+params/enabled = true
+params/editor_only = false
+params/bake_mode = 0
+params/energy = 0.5
 colors/diffuse = Color( 0.297293, 0.250732, 0.308594, 1 )
 colors/specular = Color( 1, 1, 1, 1 )
 shadow/shadow = false
