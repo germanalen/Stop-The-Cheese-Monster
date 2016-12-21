@@ -12,8 +12,8 @@ func _ready():
 	set_process(true)
 	set_process_input(true)
 	set_fixed_process(true)
-	for arm in get_node("Arms").get_children():
-		arm.on_projectile_collide(1000)
+	#for arm in get_node("Arms").get_children():
+	#	arm.on_projectile_collide(1000)
 
 
 func _process(delta):
