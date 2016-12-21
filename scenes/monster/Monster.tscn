@@ -23,6 +23,80 @@ extents = Vector3( 8, 9, 6 )
 
 extents = Vector3( 9, 9, 20 )
 
+[sub_resource type="FixedMaterial" id=5]
+
+flags/visible = true
+flags/double_sided = false
+flags/invert_faces = false
+flags/unshaded = false
+flags/on_top = false
+flags/lightmap_on_uv2 = true
+flags/colarray_is_srgb = true
+params/blend_mode = 1
+params/depth_draw = 1
+params/line_width = 0.0
+fixed_flags/use_alpha = false
+fixed_flags/use_color_array = false
+fixed_flags/use_point_size = false
+fixed_flags/discard_alpha = false
+fixed_flags/use_xy_normalmap = false
+params/diffuse = Color( 0.00784314, 0.607843, 0.6, 1 )
+params/specular = Color( 0, 0, 0, 1 )
+params/emission = Color( 0, 0, 0, 1 )
+params/specular_exp = 40
+params/detail_mix = 1.0
+params/normal_depth = 1
+params/shader = 2
+params/shader_param = 1.0
+params/glow = 0
+params/point_size = 1.0
+uv_xform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+textures/diffuse_tc = 0
+textures/detail_tc = 0
+textures/specular_tc = 0
+textures/emission_tc = 0
+textures/specular_exp_tc = 0
+textures/glow_tc = 0
+textures/normal_tc = 0
+textures/shade_param_tc = 0
+
+[sub_resource type="FixedMaterial" id=6]
+
+flags/visible = true
+flags/double_sided = false
+flags/invert_faces = false
+flags/unshaded = false
+flags/on_top = false
+flags/lightmap_on_uv2 = true
+flags/colarray_is_srgb = true
+params/blend_mode = 1
+params/depth_draw = 1
+params/line_width = 0.0
+fixed_flags/use_alpha = false
+fixed_flags/use_color_array = false
+fixed_flags/use_point_size = false
+fixed_flags/discard_alpha = false
+fixed_flags/use_xy_normalmap = false
+params/diffuse = Color( 0.00784314, 0.607843, 0.6, 1 )
+params/specular = Color( 0, 0, 0, 1 )
+params/emission = Color( 0, 0, 0, 1 )
+params/specular_exp = 40
+params/detail_mix = 1.0
+params/normal_depth = 1
+params/shader = 2
+params/shader_param = 1.0
+params/glow = 0
+params/point_size = 1.0
+uv_xform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+textures/diffuse_tc = 0
+textures/detail_tc = 0
+textures/specular_tc = 0
+textures/emission_tc = 0
+textures/specular_exp_tc = 0
+textures/glow_tc = 0
+textures/normal_tc = 0
+textures/shade_param_tc = 0
+
 [sub_resource type="FixedMaterial" id=7]
 
 flags/visible = true
@@ -97,85 +171,11 @@ textures/glow_tc = 0
 textures/normal_tc = 0
 textures/shade_param_tc = 0
 
-[sub_resource type="FixedMaterial" id=9]
-
-flags/visible = true
-flags/double_sided = false
-flags/invert_faces = false
-flags/unshaded = false
-flags/on_top = false
-flags/lightmap_on_uv2 = true
-flags/colarray_is_srgb = true
-params/blend_mode = 1
-params/depth_draw = 1
-params/line_width = 0.0
-fixed_flags/use_alpha = false
-fixed_flags/use_color_array = false
-fixed_flags/use_point_size = false
-fixed_flags/discard_alpha = false
-fixed_flags/use_xy_normalmap = false
-params/diffuse = Color( 0.00784314, 0.607843, 0.6, 1 )
-params/specular = Color( 0, 0, 0, 1 )
-params/emission = Color( 0, 0, 0, 1 )
-params/specular_exp = 40
-params/detail_mix = 1.0
-params/normal_depth = 1
-params/shader = 2
-params/shader_param = 1.0
-params/glow = 0
-params/point_size = 1.0
-uv_xform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-textures/diffuse_tc = 0
-textures/detail_tc = 0
-textures/specular_tc = 0
-textures/emission_tc = 0
-textures/specular_exp_tc = 0
-textures/glow_tc = 0
-textures/normal_tc = 0
-textures/shade_param_tc = 0
-
-[sub_resource type="FixedMaterial" id=10]
-
-flags/visible = true
-flags/double_sided = false
-flags/invert_faces = false
-flags/unshaded = false
-flags/on_top = false
-flags/lightmap_on_uv2 = true
-flags/colarray_is_srgb = true
-params/blend_mode = 1
-params/depth_draw = 1
-params/line_width = 0.0
-fixed_flags/use_alpha = false
-fixed_flags/use_color_array = false
-fixed_flags/use_point_size = false
-fixed_flags/discard_alpha = false
-fixed_flags/use_xy_normalmap = false
-params/diffuse = Color( 0.00784314, 0.607843, 0.6, 1 )
-params/specular = Color( 0, 0, 0, 1 )
-params/emission = Color( 0, 0, 0, 1 )
-params/specular_exp = 40
-params/detail_mix = 1.0
-params/normal_depth = 1
-params/shader = 2
-params/shader_param = 1.0
-params/glow = 0
-params/point_size = 1.0
-uv_xform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-textures/diffuse_tc = 0
-textures/detail_tc = 0
-textures/specular_tc = 0
-textures/emission_tc = 0
-textures/specular_exp_tc = 0
-textures/glow_tc = 0
-textures/normal_tc = 0
-textures/shade_param_tc = 0
-
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=9]
 
 extents = Vector3( 5, 4, 6 )
 
-[sub_resource type="BoxShape" id=6]
+[sub_resource type="BoxShape" id=10]
 
 extents = Vector3( 1.5, 1.5, 2.5 )
 
@@ -247,24 +247,24 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 [node name="Arm" parent="Arms" instance=ExtResource( 2 )]
 
 transform/local = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 14, 14, 0 )
-material = SubResource( 7 )
+material = SubResource( 5 )
 
 [node name="Arm 2" parent="Arms" instance=ExtResource( 2 )]
 
 transform/local = Transform( 4.37114e-08, 0, 1, 0, 1, 0, 1, 0, -4.37114e-08, -14, 14, 0 )
 flipped = true
-material = SubResource( 8 )
+material = SubResource( 6 )
 
 [node name="Arm 3" parent="Arms" instance=ExtResource( 2 )]
 
 transform/local = Transform( 4.37114e-08, 0, -1, -3.89414e-07, -1, -1.70218e-14, 1, -3.89414e-07, 4.37114e-08, 14, 0, 0 )
 flipped = true
-material = SubResource( 9 )
+material = SubResource( 7 )
 
 [node name="Arm 4" parent="Arms" instance=ExtResource( 2 )]
 
 transform/local = Transform( -2.8213e-07, 0, 1, -5.6426e-07, -1, -1.59195e-13, 1, -5.6426e-07, 2.8213e-07, -14, 0, 0 )
-material = SubResource( 10 )
+material = SubResource( 8 )
 
 [node name="Spiderbot" parent="." instance=ExtResource( 3 )]
 
@@ -277,7 +277,7 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.22698, 0 )
 input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 9 )
 shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 2
@@ -292,7 +292,7 @@ script/script = ExtResource( 4 )
 [node name="CollisionShape" type="CollisionShape" parent="Petals"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 9 )
 trigger = false
 _update_shape_index = 0
 
@@ -300,7 +300,7 @@ _update_shape_index = 0
 
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 3.27164 )
 mesh = ExtResource( 6 )
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 period = 0.2
 projectile_lifetime = 2
 relative_speed = 100

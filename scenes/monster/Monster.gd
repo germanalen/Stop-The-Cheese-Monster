@@ -12,8 +12,8 @@ func _ready():
 	set_process(true)
 	set_process_input(true)
 	set_fixed_process(true)
-	#for arm in get_node("Arms").get_children():
-	#	arm.on_projectile_collide(1000)
+	for arm in get_node("Arms").get_children():
+		arm.on_projectile_collide(1000)
 
 
 func _process(delta):
@@ -32,13 +32,25 @@ func _process(delta):
 	
 	shoot_pattern_process()
 	
-	# Petals
+	
 	if get_node("Arms").get_child_count() == 0:
+		# Petals
 		animation_tree_player.transition_node_set_current("Petals", 1)
 		if Input.is_key_pressed(KEY_1) && alive():
 			get_node("Petals/Shooter").look_at(player_controller.get_player_pos(), Vector3(0,1,0))
 			get_node("Petals/Shooter").shoot(current_velocity())
-
+	
+		# Lights color
+		var material = get_node("Spiderbot/Armature/Skeleton/lights").get_material_override()
+		var diffuse_color = material.get_parameter(FixedMaterial.PARAM_DIFFUSE)
+		if alive():
+			diffuse_color.v = float(health)/max_health * 0.5 + 0.5
+		else:
+			diffuse_color.v = lerp(diffuse_color.v, 0.1, delta * 8)
+		material.set_parameter(FixedMaterial.PARAM_DIFFUSE, diffuse_color)
+		var emission_color = material.get_parameter(FixedMaterial.PARAM_EMISSION)
+		emission_color.v = diffuse_color.v
+		material.set_parameter(FixedMaterial.PARAM_EMISSION, emission_color)
 
 func _input(event):
 	if event.type == InputEvent.KEY:
@@ -55,7 +67,8 @@ func _input(event):
 				reset_shoot_pattern(spiral_shoot_pattern())
 
 
-var health = 20
+const max_health = 20
+var health = max_health
 # Petals.on_projectile_collide
 func petals_on_projectile_collide(damage):
 	if get_node("Arms").get_child_count() == 0:
