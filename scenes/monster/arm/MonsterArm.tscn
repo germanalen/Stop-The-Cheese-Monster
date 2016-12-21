@@ -98,7 +98,7 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
 layers = 1
 geometry/visible = true
-geometry/material_override = null
+geometry/material_override = SubResource( 3 )
 geometry/cast_shadow = 1
 geometry/receive_shadows = true
 geometry/range_begin = 0.0
@@ -112,7 +112,7 @@ geometry/use_baked_light = false
 geometry/baked_light_tex_id = 0
 mesh/mesh = ExtResource( 3 )
 mesh/skeleton = NodePath("..")
-material/0 = SubResource( 3 )
+material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="ArmUpper"]
 
@@ -147,7 +147,7 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
 layers = 1
 geometry/visible = true
-geometry/material_override = null
+geometry/material_override = SubResource( 3 )
 geometry/cast_shadow = 1
 geometry/receive_shadows = true
 geometry/range_begin = 0.0
@@ -161,7 +161,7 @@ geometry/use_baked_light = false
 geometry/baked_light_tex_id = 0
 mesh/mesh = ExtResource( 3 )
 mesh/skeleton = NodePath("..")
-material/0 = SubResource( 3 )
+material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="ArmUpper/ArmLower"]
 

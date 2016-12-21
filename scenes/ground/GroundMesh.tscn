@@ -45,7 +45,7 @@ transform/local = Transform( 1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0, 0, 0 )
 
 [node name="Plane" parent="."]
 
+geometry/material_override = SubResource( 1 )
 mesh/skeleton = NodePath("..")
-material/0 = SubResource( 1 )
 
 
