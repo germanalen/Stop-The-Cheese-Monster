@@ -10,10 +10,6 @@
 
 extents = Vector3( 4, 4, 10 )
 
-[sub_resource type="BoxShape" id=2]
-
-extents = Vector3( 4, 4, 8 )
-
 [sub_resource type="FixedMaterial" id=3]
 
 flags/visible = true
@@ -51,6 +47,10 @@ textures/glow_tc = 0
 textures/normal_tc = 0
 textures/shade_param_tc = 0
 
+[sub_resource type="BoxShape" id=2]
+
+extents = Vector3( 4, 4, 8 )
+
 [sub_resource type="BoxShape" id=4]
 
 extents = Vector3( 1.5, 1.5, 2.5 )
@@ -73,6 +73,7 @@ collide_with/character = false
 collision/margin = 0.001
 script/script = ExtResource( 1 )
 flipped = false
+material = SubResource( 3 )
 
 [node name="ArmUpper" type="KinematicBody" parent="."]
 

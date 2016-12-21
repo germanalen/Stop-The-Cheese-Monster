@@ -7,12 +7,20 @@ var arm_upper
 var arm_lower
 var global_node
 
+# material should be "made unique" in each instance of MonsterArm
+export(FixedMaterial) var material
+var color
 
 func _ready():
 	global_node = get_node("/root/global")
 	
 	arm_upper = get_node("ArmUpper")
 	arm_lower = get_node("ArmUpper/ArmLower")
+	
+	color = material.get_parameter(FixedMaterial.PARAM_DIFFUSE)
+	arm_upper.get_node("InnerMesh").set_material_override(material)
+	arm_lower.get_node("InnerMesh").set_material_override(material)
+	
 	
 	wish_upper_quat = Quat(arm_upper.get_transform().basis)
 	wish_lower_quat = Quat(arm_lower.get_transform().basis)
@@ -32,7 +40,14 @@ func _process(delta):
 		
 		global_node.spatial_quat_slerp(arm_upper, wish_upper_quat, arm_rotate_slerp_rate * delta)
 		global_node.spatial_quat_slerp(arm_lower, wish_lower_quat, arm_rotate_slerp_rate * delta)
-
+	
+	if alive():
+		color.v = float(health)/max_health * 0.5 + 0.5
+		material.set_parameter(FixedMaterial.PARAM_DIFFUSE, color)
+	else:
+		color.v = lerp(color.v, 0, delta * 8)
+		material.set_parameter(FixedMaterial.PARAM_DIFFUSE, color)
+	
 
 func _fixed_process(delta):
 	if !alive():
@@ -68,7 +83,8 @@ func shoot(parent_velocity):
 	get_node("ArmUpper/ArmLower/Shooter").shoot(parent_velocity)
 
 
-var health = 10
+const max_health = 10
+var health = max_health
 
 func on_projectile_collide(damage):
 	health -= damage
