@@ -30,6 +30,18 @@ func _process(delta):
 	
 	if Input.is_action_pressed("shoot"):
 		shoot()
+	
+	
+	var material = get_node("Player/spaceship/lights").get_material_override()
+	var diffuse_color = material.get_parameter(FixedMaterial.PARAM_DIFFUSE)
+	if player_alive():
+		diffuse_color.v = float(health)/max_health * 0.5 + 0.5
+	else:
+		diffuse_color.v = lerp(diffuse_color.v, 0.1, delta * 8)
+	material.set_parameter(FixedMaterial.PARAM_DIFFUSE, diffuse_color)
+	var emission_color = material.get_parameter(FixedMaterial.PARAM_EMISSION)
+	emission_color.v = diffuse_color.v
+	material.set_parameter(FixedMaterial.PARAM_EMISSION, emission_color)
 
 
 func shoot():
@@ -158,7 +170,8 @@ func on_player_won():
 	player_won = true
 
 
-var health = 10
+const max_health = 10
+var health = max_health
 
 func on_projectile_collide(damage):
 	health -= damage
