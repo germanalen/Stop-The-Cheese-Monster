@@ -17,6 +17,8 @@ func _ready():
 
 
 func _process(delta):
+	ai_process(delta)
+	
 	if Input.is_key_pressed(KEY_1):
 		for arm in get_node("Arms").get_children():
 			arm.shoot(current_velocity())
@@ -154,6 +156,9 @@ func shoot_pattern_process():
 func stop_shoot_pattern():
 	shoot_pattern = [[],[],[],[]]
 
+func shoot_pattern_finished():
+	return shoot_pattern_index >= shoot_pattern[0].size()
+
 
 func lines_shoot_pattern_horizontal(midpoint_y=0):
 	var points = [[],[],[],[]]
@@ -210,3 +215,39 @@ func spiral_shoot_pattern(length = 60, begin_radius = 0.1, end_radius = 1):
 		points[3].append([Vector2(sin(angle+PI*1.5),cos(angle+PI*1.5)) * radius, true])
 	
 	return points
+
+
+var attacking = false
+func ai_process(delta):
+	if !alive():
+		return
+	
+	var ai_timer = get_node("AITimer")
+	if player_controller.player_alive():
+		if attacking:
+			if shoot_pattern_finished():
+				attacking = false
+				ai_timer.start()
+		else:
+			if ai_timer.get_time_left() <= 0:
+				attacking = true
+				
+				var pattern_num = randi() % 4
+				if pattern_num == 0:
+					reset_shoot_pattern(lines_shoot_pattern_horizontal())
+				if pattern_num == 1:
+					reset_shoot_pattern(lines_shoot_pattern_vertical())
+				if pattern_num == 2:
+					reset_shoot_pattern(cross_shoot_pattern())
+				if pattern_num == 3:
+					reset_shoot_pattern(spiral_shoot_pattern())
+			for arm in get_node("Arms").get_children():
+				arm.wiggle()
+		if get_node("Arms").get_child_count() == 0:
+				turn_to_player(delta)
+				get_node("Petals/Shooter").look_at(player_controller.get_player_pos(), Vector3(0,1,0))
+				get_node("Petals/Shooter").shoot(current_velocity())
+	else:
+		for arm in get_node("Arms").get_children():
+			arm.wiggle()
+			arm.shoot(current_velocity())

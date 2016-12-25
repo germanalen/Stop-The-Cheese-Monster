@@ -170,7 +170,7 @@ func on_player_won():
 	player_won = true
 
 
-const max_health = 10
+const max_health = 1000
 var health = max_health
 
 func on_projectile_collide(damage):

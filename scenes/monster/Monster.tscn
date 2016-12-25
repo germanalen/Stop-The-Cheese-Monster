@@ -307,4 +307,11 @@ relative_speed = 100
 collision_layers = 4
 destruct_mask = 1
 
+[node name="AITimer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = true
+
 
