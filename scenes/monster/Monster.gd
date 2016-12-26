@@ -10,7 +10,7 @@ onready var animation_tree_player = get_node("Spiderbot/AnimationTreePlayer")
 
 func _ready():
 	set_process(true)
-	set_process_input(true)
+#	set_process_input(true)
 	set_fixed_process(true)
 #	for arm in get_node("Arms").get_children():
 #		arm.on_projectile_collide(1000)
@@ -19,18 +19,18 @@ func _ready():
 func _process(delta):
 	ai_process(delta)
 	
-	if Input.is_key_pressed(KEY_1):
-		for arm in get_node("Arms").get_children():
-			arm.shoot(current_velocity())
-	if Input.is_key_pressed(KEY_Z):
-		stop_shoot_pattern()
-		for arm in get_node("Arms").get_children():
-			arm.wiggle()
-	if Input.is_key_pressed(KEY_X):
-		stop_shoot_pattern()
-		for arm in get_node("Arms").get_children():
-			arm.direct_at(player_controller.get_player_pos())
-		turn_to_player(delta)
+#	if Input.is_key_pressed(KEY_1):
+#		for arm in get_node("Arms").get_children():
+#			arm.shoot(current_velocity())
+#	if Input.is_key_pressed(KEY_Z):
+#		stop_shoot_pattern()
+#		for arm in get_node("Arms").get_children():
+#			arm.wiggle()
+#	if Input.is_key_pressed(KEY_X):
+#		stop_shoot_pattern()
+#		for arm in get_node("Arms").get_children():
+#			arm.direct_at(player_controller.get_player_pos())
+#		turn_to_player(delta)
 	
 	shoot_pattern_process()
 	
@@ -38,9 +38,9 @@ func _process(delta):
 	if get_node("Arms").get_child_count() == 0:
 		# Petals
 		animation_tree_player.transition_node_set_current("Petals", 1)
-		if Input.is_key_pressed(KEY_1) && alive():
-			get_node("Petals/Shooter").look_at(player_controller.get_player_pos(), Vector3(0,1,0))
-			get_node("Petals/Shooter").shoot(current_velocity())
+#		if Input.is_key_pressed(KEY_1) && alive():
+#			get_node("Petals/Shooter").look_at(player_controller.get_player_pos(), Vector3(0,1,0))
+#			get_node("Petals/Shooter").shoot(current_velocity())
 	
 		# Lights color
 		var material = get_node("Spiderbot/Armature/Skeleton/lights").get_material_override()
@@ -54,19 +54,19 @@ func _process(delta):
 		emission_color.v = diffuse_color.v
 		material.set_parameter(FixedMaterial.PARAM_EMISSION, emission_color)
 
-func _input(event):
-	if event.type == InputEvent.KEY:
-		if event.pressed == true:
-			if event.scancode == KEY_0:
-				switch_idle_walking()
-			if event.scancode == KEY_2:
-				reset_shoot_pattern(lines_shoot_pattern_horizontal())
-			if event.scancode == KEY_3:
-				reset_shoot_pattern(lines_shoot_pattern_vertical())
-			if event.scancode == KEY_4:
-				reset_shoot_pattern(cross_shoot_pattern())
-			if event.scancode == KEY_5:
-				reset_shoot_pattern(spiral_shoot_pattern())
+#func _input(event):
+#	if event.type == InputEvent.KEY:
+#		if event.pressed == true:
+#			if event.scancode == KEY_0:
+#				switch_idle_walking()
+#			if event.scancode == KEY_2:
+#				reset_shoot_pattern(lines_shoot_pattern_horizontal())
+#			if event.scancode == KEY_3:
+#				reset_shoot_pattern(lines_shoot_pattern_vertical())
+#			if event.scancode == KEY_4:
+#				reset_shoot_pattern(cross_shoot_pattern())
+#			if event.scancode == KEY_5:
+#				reset_shoot_pattern(spiral_shoot_pattern())
 
 
 const max_health = 20
