@@ -10,7 +10,7 @@
 
 extents = Vector3( 4, 4, 10 )
 
-[sub_resource type="FixedMaterial" id=3]
+[sub_resource type="FixedMaterial" id=2]
 
 flags/visible = true
 flags/double_sided = false
@@ -47,7 +47,7 @@ textures/glow_tc = 0
 textures/normal_tc = 0
 textures/shade_param_tc = 0
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=3]
 
 extents = Vector3( 4, 4, 8 )
 
@@ -73,7 +73,7 @@ collide_with/character = false
 collision/margin = 0.001
 script/script = ExtResource( 1 )
 flipped = false
-material = SubResource( 3 )
+material = SubResource( 2 )
 
 [node name="ArmUpper" type="KinematicBody" parent="."]
 
@@ -81,7 +81,7 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
 shapes/0/trigger = false
 collision/layers = 2
@@ -99,7 +99,7 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
 layers = 1
 geometry/visible = true
-geometry/material_override = SubResource( 3 )
+geometry/material_override = SubResource( 2 )
 geometry/cast_shadow = 1
 geometry/receive_shadows = true
 geometry/range_begin = 0.0
@@ -119,7 +119,7 @@ material/0 = null
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
@@ -130,7 +130,7 @@ transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16 )
 input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
 shapes/0/trigger = false
 collision/layers = 2
@@ -148,7 +148,7 @@ _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
 layers = 1
 geometry/visible = true
-geometry/material_override = SubResource( 3 )
+geometry/material_override = SubResource( 2 )
 geometry/cast_shadow = 1
 geometry/receive_shadows = true
 geometry/range_begin = 0.0
@@ -168,7 +168,7 @@ material/0 = null
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://scenes/monster/Monster.gd" type="Script" id=1]
 [ext_resource path="res://scenes/monster/arm/MonsterArm.tscn" type="PackedScene" id=2]
@@ -179,6 +179,80 @@ extents = Vector3( 5, 4, 6 )
 
 extents = Vector3( 1.5, 1.5, 2.5 )
 
+[sub_resource type="FixedMaterial" id=11]
+
+flags/visible = true
+flags/double_sided = false
+flags/invert_faces = false
+flags/unshaded = false
+flags/on_top = false
+flags/lightmap_on_uv2 = true
+flags/colarray_is_srgb = true
+params/blend_mode = 0
+params/depth_draw = 1
+params/line_width = 0.0
+fixed_flags/use_alpha = true
+fixed_flags/use_color_array = true
+fixed_flags/use_point_size = false
+fixed_flags/discard_alpha = false
+fixed_flags/use_xy_normalmap = false
+params/diffuse = Color( 1, 1, 1, 1 )
+params/specular = Color( 0, 0, 0, 1 )
+params/emission = Color( 0, 0, 0, 0.448078 )
+params/specular_exp = 40
+params/detail_mix = 1.0
+params/normal_depth = 1
+params/shader = 0
+params/shader_param = 0.5
+params/glow = 0
+params/point_size = 1.0
+uv_xform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+textures/diffuse_tc = 0
+textures/detail_tc = 0
+textures/specular_tc = 0
+textures/emission_tc = 0
+textures/specular_exp_tc = 0
+textures/glow_tc = 0
+textures/normal_tc = 0
+textures/shade_param_tc = 0
+
+[sub_resource type="FixedMaterial" id=12]
+
+flags/visible = true
+flags/double_sided = false
+flags/invert_faces = false
+flags/unshaded = false
+flags/on_top = false
+flags/lightmap_on_uv2 = true
+flags/colarray_is_srgb = true
+params/blend_mode = 0
+params/depth_draw = 1
+params/line_width = 0.0
+fixed_flags/use_alpha = true
+fixed_flags/use_color_array = true
+fixed_flags/use_point_size = false
+fixed_flags/discard_alpha = false
+fixed_flags/use_xy_normalmap = false
+params/diffuse = Color( 1, 1, 1, 1 )
+params/specular = Color( 0, 0, 0, 1 )
+params/emission = Color( 0.546478, 0.992188, 0.986361, 0.448078 )
+params/specular_exp = 40
+params/detail_mix = 1.0
+params/normal_depth = 1
+params/shader = 0
+params/shader_param = 0.5
+params/glow = 0
+params/point_size = 1.0
+uv_xform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+textures/diffuse_tc = 0
+textures/detail_tc = 0
+textures/specular_tc = 0
+textures/emission_tc = 0
+textures/specular_exp_tc = 0
+textures/glow_tc = 0
+textures/normal_tc = 0
+textures/shade_param_tc = 0
+
 [node name="Monster" type="KinematicBody"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
@@ -313,5 +387,139 @@ process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="SmokeParticles" type="Particles" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, -0.0280334, 0.999607, 0, -0.999607, -0.0280334, 0, -1.71375, 0.392387 )
+layers = 1
+geometry/visible = true
+geometry/material_override = null
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+material = SubResource( 11 )
+amount = 64
+emitting = false
+visibility = AABB( -4, -4, -4, 8, 8, 8 )
+emission_extents = Vector3( 8, 8, 40 )
+emission_base_velocity = Vector3( 0, 0, 0 )
+emission_points = Vector3Array(  )
+gravity_normal = Vector3( 0, -1, 0 )
+local_coords = true
+emit_timeout = 0.0
+vars/lifetime = 4.0
+vars/spread = 0.2
+vars/gravity = 0.0
+vars/linear_vel = 30.0
+vars/angular_vel = 0.0
+vars/linear_accel = 0.0
+vars/radial_accel = 0.0
+vars/tan_accel = 0.0
+vars/damping = 0.0
+vars/initial_size = 5.0
+vars/final_size = 10.0
+vars/initial_angle = 0.0
+vars/height_from_velocity = false
+vars/height = 1.0
+vars/height_speed_scale = 0.0
+rand/lifetime = 0.0
+rand/spread = 0.0
+rand/gravity = 0.0
+rand/linear_vel = 0.0
+rand/angular_vel = 0.0
+rand/linear_accel = 0.0
+rand/radial_accel = 0.0
+rand/tan_accel = 0.0
+rand/damping = 0.0
+rand/initial_size = 0.0
+rand/final_size = 0.0
+rand/initial_angle = 1.0
+rand/height = 0.0
+rand/height_speed_scale = 0.0
+color_phases/count = 2
+phase_0/pos = 0.0
+phase_0/color = Color( 0.546478, 0.992188, 0.986361, 0.448078 )
+phase_1/pos = 0.4
+phase_1/color = Color( 0.378906, 0.378906, 0.378906, 0.240431 )
+phase_2/pos = 1.0
+phase_2/color = Color( 0, 0, 0, 1 )
+phase_3/pos = 1.0
+phase_3/color = Color( 0, 0, 0, 1 )
+
+[node name="ExplosionParticles" type="Particles" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, -0.0280334, 0.999607, 0, -0.999607, -0.0280334, 0, -1.71375, 0.392387 )
+layers = 1
+geometry/visible = true
+geometry/material_override = null
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+material = SubResource( 12 )
+amount = 200
+emitting = false
+visibility = AABB( -4, -4, -4, 8, 8, 8 )
+emission_extents = Vector3( 8, 8, 8 )
+emission_base_velocity = Vector3( 0, 0, 0 )
+emission_points = Vector3Array(  )
+gravity_normal = Vector3( 0, -1, 0 )
+local_coords = true
+emit_timeout = 0.5
+vars/lifetime = 2.0
+vars/spread = 1.0
+vars/gravity = 0.0
+vars/linear_vel = 30.0
+vars/angular_vel = 0.0
+vars/linear_accel = 0.0
+vars/radial_accel = 0.0
+vars/tan_accel = 0.0
+vars/damping = 0.0
+vars/initial_size = 5.0
+vars/final_size = 10.0
+vars/initial_angle = 0.0
+vars/height_from_velocity = false
+vars/height = 1.0
+vars/height_speed_scale = 0.0
+rand/lifetime = 0.0
+rand/spread = 0.0
+rand/gravity = 0.0
+rand/linear_vel = 0.0
+rand/angular_vel = 0.0
+rand/linear_accel = 0.0
+rand/radial_accel = 0.0
+rand/tan_accel = 0.0
+rand/damping = 0.0
+rand/initial_size = 0.0
+rand/final_size = 0.0
+rand/initial_angle = 1.0
+rand/height = 0.0
+rand/height_speed_scale = 0.0
+color_phases/count = 2
+phase_0/pos = 0.0
+phase_0/color = Color( 0.546478, 0.992188, 0.986361, 0.448078 )
+phase_1/pos = 0.5
+phase_1/color = Color( 0.546478, 0.992188, 0.986361, 0.0491765 )
+phase_2/pos = 1.0
+phase_2/color = Color( 0, 0, 0, 1 )
+phase_3/pos = 1.0
+phase_3/color = Color( 0, 0, 0, 1 )
 
 

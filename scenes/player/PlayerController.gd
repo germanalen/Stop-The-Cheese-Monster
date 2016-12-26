@@ -170,11 +170,14 @@ func on_player_won():
 	player_won = true
 
 
-const max_health = 1000
+const max_health = 10
 var health = max_health
 
 func on_projectile_collide(damage):
 	health -= damage
+	
+	if !player_alive():
+		get_node("Player/SmokeParticles").set_emitting(true)
 
 func player_alive():
 	return health > 0

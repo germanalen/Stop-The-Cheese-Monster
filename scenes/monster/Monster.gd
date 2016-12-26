@@ -12,8 +12,8 @@ func _ready():
 	set_process(true)
 	set_process_input(true)
 	set_fixed_process(true)
-	#for arm in get_node("Arms").get_children():
-	#	arm.on_projectile_collide(1000)
+#	for arm in get_node("Arms").get_children():
+#		arm.on_projectile_collide(1000)
 
 
 func _process(delta):
@@ -79,6 +79,8 @@ func petals_on_projectile_collide(damage):
 		if !alive():
 			player_controller.on_player_won()
 			stop_walking()
+			get_node("SmokeParticles").set_emitting(true)
+			get_node("ExplosionParticles").set_emitting(true)
 
 
 func alive():
@@ -248,6 +250,11 @@ func ai_process(delta):
 				get_node("Petals/Shooter").look_at(player_controller.get_player_pos(), Vector3(0,1,0))
 				get_node("Petals/Shooter").shoot(current_velocity())
 	else:
+		wish_walking = lerp(wish_walking, 0, delta * 0.3)
+		if wish_walking < 0.4:
+			wish_walking = 0
+		stop_shoot_pattern()
 		for arm in get_node("Arms").get_children():
 			arm.wiggle()
-			arm.shoot(current_velocity())
+			if wish_walking < 0.2:
+				arm.shoot(current_velocity())
