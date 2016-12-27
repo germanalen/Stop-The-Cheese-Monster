@@ -178,6 +178,7 @@ func on_projectile_collide(damage):
 	
 	if !player_alive():
 		get_node("Player/SmokeParticles").set_emitting(true)
+		get_node("Player/Shooter").damage = 0
 
 func player_alive():
 	return health > 0

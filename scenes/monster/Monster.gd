@@ -222,6 +222,7 @@ func spiral_shoot_pattern(length = 60, begin_radius = 0.1, end_radius = 1):
 var attacking = false
 func ai_process(delta):
 	if !alive():
+		get_node("Petals/Shooter").damage = 0
 		return
 	
 	var ai_timer = get_node("AITimer")
