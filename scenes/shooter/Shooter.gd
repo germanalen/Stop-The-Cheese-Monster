@@ -4,6 +4,7 @@ extends Spatial
 
 export(Mesh) var mesh
 export(Shape) var shape
+export var particles_size = 1.0
 
 export var period = 1.0
 var period_timer
@@ -22,7 +23,11 @@ export(int, FLAGS) var destruct_mask = 0
 func _ready():
 	period_timer = get_node("PeriodTimer")
 	period_timer.set_wait_time(period)
-
+	
+	var particles = get_node("Particles")
+	particles.set_material(mesh.surface_get_material(0))
+	particles.set_variable(Particles.VAR_INITIAL_SIZE, particles_size)
+	particles.set_variable(Particles.VAR_FINAL_SIZE, particles_size)
 
 func create_projectile():
 	var projectile = RigidBody.new()
@@ -59,6 +64,13 @@ func create_projectile():
 func projectile_on_body_enter(body, projectile):
 	if body.has_method("on_projectile_collide"):
 		body.on_projectile_collide(damage)
+		
+		var particle = get_node("Particles")
+		var particle_global_transform = particle.get_global_transform()
+		particle_global_transform.origin = projectile.get_global_transform().origin
+		particle.set_global_transform(particle_global_transform)
+		particle.set_emitting(true)
+		
 	if body.get_layer_mask() & destruct_mask != 0:
 		projectile.queue_free()
 

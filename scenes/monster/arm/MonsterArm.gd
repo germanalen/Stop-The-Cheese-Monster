@@ -27,7 +27,11 @@ func _ready():
 	
 	set_process(true)
 	set_fixed_process(true)
-
+	
+	if flipped:
+		var shooter = get_node("ArmUpper/ArmLower/Shooter")
+		shooter.set_scale(Vector3(-1, 1, 1))
+		shooter.rotate_z(PI)
 
 
 var wish_upper_quat
@@ -110,8 +114,8 @@ func fall_off():
 	new_parent.add_child(self)
 	set_global_transform(global_transform)
 	
-	get_node("ArmUpper").set_collision_mask(0)
-	get_node("ArmUpper/ArmLower").set_collision_mask(0)
+	get_node("ArmUpper").set_layer_mask(0)
+	get_node("ArmUpper/ArmLower").set_layer_mask(0)
 
 
 
