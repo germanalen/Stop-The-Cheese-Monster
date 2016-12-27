@@ -9,6 +9,8 @@ onready var forward_velocity = Vector3(0, 0, -forward_speed)
 
 onready var camera_player_offset = get_node("Camera").get_translation() - get_node("Player").get_translation()
 
+onready var sample_player = get_node("/root/Game/SamplePlayer")
+
 func _ready():
 	set_process(true)
 	
@@ -179,6 +181,7 @@ func on_projectile_collide(damage):
 	if !player_alive():
 		get_node("Player/SmokeParticles").set_emitting(true)
 		get_node("Player/Shooter").damage = 0
+		get_node("/root/Game/SamplePlayer").play("explosion5")
 
 func player_alive():
 	return health > 0

@@ -8,7 +8,7 @@
 
 [sub_resource type="BoxShape" id=1]
 
-extents = Vector3( 4, 4, 10 )
+extents = Vector3( 2, 2, 10 )
 
 [sub_resource type="FixedMaterial" id=2]
 
@@ -49,7 +49,7 @@ textures/shade_param_tc = 0
 
 [sub_resource type="BoxShape" id=3]
 
-extents = Vector3( 4, 4, 8 )
+extents = Vector3( 2, 2, 7 )
 
 [sub_resource type="BoxShape" id=4]
 
@@ -177,7 +177,9 @@ _update_shape_index = 0
 transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16 )
 mesh = ExtResource( 5 )
 shape = SubResource( 4 )
-period = 0.05
+shoot_sample_name = "shoot5"
+hit_sample_name = "hit4"
+period = 0.1
 projectile_lifetime = 2
 relative_speed = 100
 collision_layers = 4

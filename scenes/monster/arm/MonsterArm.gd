@@ -116,6 +116,8 @@ func fall_off():
 	
 	get_node("ArmUpper").set_layer_mask(0)
 	get_node("ArmUpper/ArmLower").set_layer_mask(0)
+	
+	get_node("/root/Game/SamplePlayer").play("arm1")
 
 
 

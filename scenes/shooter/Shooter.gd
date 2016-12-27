@@ -5,6 +5,9 @@ extends Spatial
 export(Mesh) var mesh
 export(Shape) var shape
 export var particles_size = 1.0
+export(String) var shoot_sample_name
+export(String) var hit_sample_name
+onready var sample_player = get_node("/root/Game/SamplePlayer")
 
 export var period = 1.0
 var period_timer
@@ -71,6 +74,7 @@ func projectile_on_body_enter(body, projectile):
 		particle.set_global_transform(particle_global_transform)
 		particle.set_emitting(true)
 		
+		sample_player.play(hit_sample_name)
 	if body.get_layer_mask() & destruct_mask != 0:
 		projectile.queue_free()
 
@@ -86,6 +90,6 @@ func shoot(parent_velocity):
 	projectile_parent.add_child(projectile)
 	projectile.set_linear_velocity(parent_velocity + projectile.get_transform().basis.z * (-relative_speed))
 	
-	pass
+	sample_player.play(shoot_sample_name)
 
 

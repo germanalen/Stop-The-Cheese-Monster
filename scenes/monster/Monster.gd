@@ -83,6 +83,7 @@ func petals_on_projectile_collide(damage):
 			stop_walking()
 			get_node("SmokeParticles").set_emitting(true)
 			get_node("ExplosionParticles").set_emitting(true)
+			get_node("/root/Game/SamplePlayer").play("explosion3")
 
 
 func alive():
