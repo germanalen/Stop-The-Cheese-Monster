@@ -144,18 +144,18 @@ quad/centered = true
 
 [node name="PlayButton" type="Button" parent="Hud"]
 
-anchor/left = 3
-anchor/top = 3
-anchor/right = 3
-anchor/bottom = 3
+anchor/left = 2
+anchor/top = 2
+anchor/right = 2
+anchor/bottom = 2
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 112.0
-margin/top = 100.0
-margin/right = -88.0
-margin/bottom = 0.0
+margin/left = 0.390625
+margin/top = 0.333333
+margin/right = 0.585938
+margin/bottom = 0.5
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -165,25 +165,33 @@ flat = false
 [node name="GameOverHud" type="Control" parent="Hud"]
 
 visibility/visible = false
+anchor/left = 2
+anchor/top = 2
+anchor/right = 2
+anchor/bottom = 2
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin/right = 0.0390625
+margin/bottom = 0.0666667
 
 [node name="GameOverLabel" type="Label" parent="Hud/GameOverHud"]
 
+anchor/left = 2
+anchor/top = 2
+anchor/right = 2
+anchor/bottom = 2
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 400.0
-margin/top = 100.0
-margin/right = 600.0
-margin/bottom = 200.0
+margin/left = 10.0
+margin/top = 2.5
+margin/right = 15.0
+margin/bottom = 5.0
 text = "GAME OVER"
 percent_visible = 1.0
 lines_skipped = 0
@@ -191,14 +199,18 @@ max_lines_visible = -1
 
 [node name="GameOverReloadButton" type="Button" parent="Hud/GameOverHud"]
 
+anchor/left = 2
+anchor/top = 2
+anchor/right = 2
+anchor/bottom = 2
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 400.0
-margin/top = 300.0
-margin/right = 600.0
-margin/bottom = 400.0
+margin/left = 10.0
+margin/top = 7.5
+margin/right = 15.0
+margin/bottom = 10.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -208,25 +220,33 @@ flat = false
 [node name="WinHud" type="Control" parent="Hud"]
 
 visibility/visible = false
+anchor/left = 2
+anchor/top = 2
+anchor/right = 2
+anchor/bottom = 2
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin/right = 0.0390625
+margin/bottom = 0.0666667
 
 [node name="WinLabel" type="Label" parent="Hud/WinHud"]
 
+anchor/left = 2
+anchor/top = 2
+anchor/right = 2
+anchor/bottom = 2
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 400.0
-margin/top = 100.0
-margin/right = 600.0
-margin/bottom = 200.0
+margin/left = 10.0
+margin/top = 2.5
+margin/right = 15.0
+margin/bottom = 5.0
 text = "YOU DEFEATED THE MONSTER"
 percent_visible = 1.0
 lines_skipped = 0
@@ -234,14 +254,18 @@ max_lines_visible = -1
 
 [node name="WinReloadButton" type="Button" parent="Hud/WinHud"]
 
+anchor/left = 2
+anchor/top = 2
+anchor/right = 2
+anchor/bottom = 2
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 400.0
-margin/top = 300.0
-margin/right = 600.0
-margin/bottom = 397.0
+margin/left = 10.0
+margin/top = 7.5
+margin/right = 15.0
+margin/bottom = 9.925
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
