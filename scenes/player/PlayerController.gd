@@ -7,6 +7,13 @@ const PLAYER_POS_BOUND_SIZE = Vector2(60, 25)
 export var forward_speed = 0
 onready var forward_velocity = Vector3(0, 0, -forward_speed)
 
+func set_forward_speed(forward_speed):
+	self.forward_speed = forward_speed
+	forward_velocity = Vector3(0, 0, -forward_speed)
+
+func get_forward_speed():
+	return forward_speed
+
 onready var camera_player_offset = get_node("Camera").get_translation() - get_node("Player").get_translation()
 
 onready var sample_player = get_node("/root/Game/SamplePlayer")
@@ -28,10 +35,6 @@ func _process(delta):
 	var camera_rotation = camera.get_rotation()
 	camera_rotation.y = -player_pos.x / PLAYER_POS_BOUND_SIZE.width * 0.4
 	camera.set_rotation(camera_rotation)
-	
-	
-	if Input.is_action_pressed("shoot"):
-		shoot()
 	
 	
 	var material = get_node("Player/spaceship/lights").get_material_override()
@@ -95,6 +98,8 @@ func player_playing_process(delta):
 		wish_move_direction += Vector2(-1, 0)
 	if Input.is_action_pressed("move_right"):
 		wish_move_direction += Vector2(1, 0)
+	if Input.is_action_pressed("shoot"):
+		shoot()
 	
 	wish_move_direction = wish_move_direction.normalized()
 	
@@ -181,7 +186,7 @@ func on_projectile_collide(damage):
 	if !player_alive():
 		get_node("Player/SmokeParticles").set_emitting(true)
 		get_node("Player/Shooter").damage = 0
-		get_node("/root/Game/SamplePlayer").play("explosion5")
+		sample_player.play("explosion5")
 
 func player_alive():
 	return health > 0

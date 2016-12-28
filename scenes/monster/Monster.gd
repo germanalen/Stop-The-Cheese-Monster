@@ -2,7 +2,7 @@
 extends KinematicBody
 
 export(NodePath) var player_controller_node_path
-onready var player_controller=  get_node(player_controller_node_path)
+onready var player_controller = get_node(player_controller_node_path)
 
 onready var skeleton = get_node("Spiderbot/Armature/Skeleton")
 onready var chest_bone_id = skeleton.find_bone("Chest")

@@ -1,7 +1,8 @@
 extends Spatial
 
-export(NodePath) var player_controller_node_path
-onready var player_controller = get_node(player_controller_node_path)
+var player_z = 0
+func set_player_z(player_z):
+	self.player_z = player_z
 
 onready var mesh1 = get_node("GroundMesh")
 onready var mesh2 = get_node("GroundMesh 2")
@@ -13,7 +14,6 @@ func _ready():
 func _process(delta):
 	var mesh_length = 20115
 	
-	var player_z = player_controller.get_player_pos().z
 	var mesh1_z = mesh1.get_global_transform().origin.z
 	var mesh2_z = mesh2.get_global_transform().origin.z
 	
