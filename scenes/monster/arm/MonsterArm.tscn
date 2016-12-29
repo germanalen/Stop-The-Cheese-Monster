@@ -8,7 +8,7 @@
 
 [sub_resource type="BoxShape" id=1]
 
-extents = Vector3( 2, 2, 10 )
+extents = Vector3( 2, 2, 2 )
 
 [sub_resource type="FixedMaterial" id=2]
 
@@ -62,9 +62,9 @@ input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.5322 )
+shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shapes/0/trigger = false
-collision/layers = 2
+collision/layers = 0
 collision/mask = 0
 collide_with/static = true
 collide_with/kinematic = false
@@ -188,7 +188,6 @@ destruct_mask = 1
 [node name="CollisionShape" type="CollisionShape" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.5322 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
