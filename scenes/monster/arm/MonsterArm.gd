@@ -87,7 +87,7 @@ func shoot(parent_velocity):
 	get_node("ArmUpper/ArmLower/Shooter").shoot(parent_velocity)
 
 
-const max_health = 10
+const max_health = 20
 var health = max_health
 
 func on_projectile_collide(damage):

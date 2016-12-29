@@ -377,7 +377,7 @@ mesh = ExtResource( 6 )
 shape = SubResource( 10 )
 shoot_sample_name = "shoot5"
 hit_sample_name = "hit4"
-period = 0.1
+period = 0.2
 projectile_lifetime = 2
 relative_speed = 100
 collision_layers = 4
@@ -386,7 +386,7 @@ destruct_mask = 1
 [node name="AITimer" type="Timer" parent="."]
 
 process_mode = 1
-wait_time = 2.0
+wait_time = 1.0
 one_shot = true
 autostart = true
 
