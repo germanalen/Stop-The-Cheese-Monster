@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ground/Ground.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://samples/hit4.smp" type="Sample" id=11]
 [ext_resource path="res://samples/shoot1.smp" type="Sample" id=12]
 [ext_resource path="res://samples/shoot5.smp" type="Sample" id=13]
+[ext_resource path="res://gui/theme.tres" type="Theme" id=14]
 
 [sub_resource type="SampleLibrary" id=1]
 
@@ -152,10 +153,11 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.390625
-margin/top = 0.333333
-margin/right = 0.585938
-margin/bottom = 0.5
+theme/theme = ExtResource( 14 )
+margin/left = 0.375
+margin/top = 0.666667
+margin/right = 0.625
+margin/bottom = 0.835
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -173,6 +175,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+theme/theme = ExtResource( 14 )
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 0.0390625
@@ -188,11 +191,12 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 10.0
+margin/left = 6.4
 margin/top = 2.5
-margin/right = 15.0
+margin/right = 19.2
 margin/bottom = 5.0
 text = "GAME OVER"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -207,10 +211,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 7.5
-margin/right = 15.0
-margin/bottom = 10.0
+margin/left = 9.6
+margin/top = 10.0
+margin/right = 16.0
+margin/bottom = 12.5
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -228,6 +232,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+theme/theme = ExtResource( 14 )
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 0.0390625
@@ -243,11 +248,12 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 10.0
+margin/left = 0.0
 margin/top = 2.5
-margin/right = 15.0
+margin/right = 25.6
 margin/bottom = 5.0
 text = "YOU DEFEATED THE MONSTER"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -262,10 +268,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 10.0
-margin/top = 7.5
-margin/right = 15.0
-margin/bottom = 9.925
+margin/left = 9.6
+margin/top = 10.0
+margin/right = 16.0
+margin/bottom = 12.425
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
