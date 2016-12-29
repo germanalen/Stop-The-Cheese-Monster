@@ -12,7 +12,7 @@
 ambient_light/enabled = false
 ambient_light/color = Color( 0.152344, 0.152344, 0.152344, 1 )
 ambient_light/energy = 1.0
-fxaa/enabled = false
+fxaa/enabled = true
 background/mode = 3
 background/color = Color( 0.249814, 0.0737, 0.410156, 1 )
 background/texture = ExtResource( 2 )
